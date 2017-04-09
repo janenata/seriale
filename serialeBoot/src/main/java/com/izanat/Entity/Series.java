@@ -6,11 +6,12 @@ package com.izanat.Entity;
 public class Series {
     private String title;
     private String seriesWebsite;
-    private TvStation station;
+    private String station;
     private Double rating;
-    private int votes;
+   // private int votes; //nie wiem czy potrzebujemy, czy nie wystarczy że baza bedzie sobie to liczyła i zmieniała w zapytaniu
+    //może trzeba dodać image? bo możnaby wyświetlać na stronie
 
-    public Series(String title, String seriesWebsite, TvStation station) {
+    public Series(String title, String seriesWebsite, String station) {
         this.title = title;
         this.seriesWebsite = seriesWebsite;
         this.station = station;
@@ -35,11 +36,11 @@ public class Series {
         this.seriesWebsite = seriesWebsite;
     }
 
-    public TvStation getStation() {
+    public String getStation() {
         return station;
     }
 
-    public void setStation(TvStation station) {
+    public void setStation(String station) {
         this.station = station;
     }
 
@@ -51,11 +52,11 @@ public class Series {
         this.rating = rating;
     }
 
-    public int getVotes() {
+    /*public int getVotes() {
         return votes;
     }
 
     public void setVotes(int votes) {
         this.votes = votes;
-    }
+    }*/
 }

@@ -9,7 +9,7 @@ import java.util.Collection;
  */
 public interface UserDaoInterface {
     void addUser(User user);
-    void changePassword(User user, String newPass);
+    void changePassword(String login, String newPass);
 
     //for testing
     Collection<User> getAllUsers();

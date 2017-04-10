@@ -4,6 +4,7 @@ import com.izanat.Entity.TvStation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,8 @@ import java.util.List;
 /**
  * Created by Nathalie on 10.04.2017.
  */
+//przetestowane
+@Repository
 public class TvStationDao implements TvStationDaoInterface {
 
     private static class StationRowMapper implements RowMapper<TvStation> {
@@ -23,7 +26,7 @@ public class TvStationDao implements TvStationDaoInterface {
             return tvStation;
         }
     }
-//TO DO: test wszystko
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -44,7 +47,9 @@ public class TvStationDao implements TvStationDaoInterface {
     @Override
     public TvStation getStation(String stationId) {
         final String query = "SELECT station_id, station_website FROM tv_station WHERE station_id = ?";
-        jdbcTemplate.queryForObject(query, new Object[]{stationId}, new StationRowMapper());
-        return null;
+        TvStation station = jdbcTemplate.queryForObject(query, new Object[]{stationId}, new StationRowMapper());
+        return station;
     }
+
+
 }

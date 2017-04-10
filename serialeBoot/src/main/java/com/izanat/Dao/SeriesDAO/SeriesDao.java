@@ -14,6 +14,8 @@ import java.util.List;
 /**
  * Created by Nathalie on 09.04.2017.
  */
+
+//przetestowane
 @Repository
 public class SeriesDao implements SeriesDaoInterface {
     @Autowired
@@ -28,6 +30,7 @@ public class SeriesDao implements SeriesDaoInterface {
             serie.setSeriesWebsite(resultSet.getString("series_website"));
             serie.setStation(resultSet.getString("station_id"));
             serie.setRating(resultSet.getDouble("rating"));
+            serie.setImageLink(resultSet.getString("image"));
 
             return serie;
         }
@@ -36,8 +39,7 @@ public class SeriesDao implements SeriesDaoInterface {
 
     @Override
     public List<Series> getMostPopularSeries() {
-        //nie wiem co z image bo nie mamy w klasie Series--mógłby nam się przydać do wyświetlania na stronie ???
-        final String query = "SELECT title, series_website, station_id, rating  FROM watched_series NATURAL JOIN series GROUP BY title ORDER BY COUNT(title) DESC LIMIT 3;";
+        final String query = "SELECT title, series_website, station_id, rating, image  FROM watched_series NATURAL JOIN series GROUP BY title ORDER BY COUNT(title) DESC LIMIT 3;";
         List<Series> series = jdbcTemplate.query(query, new SeriesRowMapper());
         return series;
     }
@@ -45,28 +47,28 @@ public class SeriesDao implements SeriesDaoInterface {
 
     @Override
     public List<Series> getTopRatedSeries() {
-        final String query = "SELECT title, series_website, station_id, rating FROM series ORDER BY Rating DESC LIMIT 3;";
+        final String query = "SELECT title, series_website, station_id, rating, image FROM series ORDER BY Rating DESC LIMIT 3;";
         List<Series> series = jdbcTemplate.query(query, new SeriesRowMapper());
         return series;
     }
 
     @Override
     public List<Series> getAllSeries() {
-        final String query = "SELECT title, series_website, station_id, rating FROM series;";
+        final String query = "SELECT title, series_website, station_id, rating, image FROM series;";
         List<Series> series = jdbcTemplate.query(query, new SeriesRowMapper());
         return series;
     }
 
     @Override
     public List<Series> getSeriesWatchedByUser(User user) {
-        final String query = "SELECT title, series_website, station_id, rating FROM watched_series NATURAL JOIN series WHERE login = ?;";
+        final String query = "SELECT title, series_website, station_id, rating, image FROM watched_series NATURAL JOIN series WHERE login = ?;";
         List<Series> series = jdbcTemplate.query(query, new SeriesRowMapper(), user.getLogin());
         return series;
     }
 
     @Override
     public List<Series> getSeriesUserMightLike(User user) {
-        final String query = "SELECT title, series_website, station_id, rating \n" +
+        final String query = "SELECT title, series_website, station_id, rating, image \n" +
                 "FROM watched_series NATURAL JOIN series\n" +
                 "WHERE login IN (\n" +
                 "SELECT login FROM watched_series WHERE title IN (\n" +
@@ -76,7 +78,7 @@ public class SeriesDao implements SeriesDaoInterface {
                 "GROUP BY title\n" +
                 "ORDER BY COUNT(title) DESC\n" +
                 "LIMIT 5;";
-        List<Series> series = jdbcTemplate.query(query, new SeriesRowMapper(), new Object[]{user.getLogin(), user.getLogin(),user.getLogin()});
+        List<Series> series = jdbcTemplate.query(query, new SeriesRowMapper(), new Object[]{user.getLogin(), user.getLogin(), user.getLogin()});
         return series;
     }
 
@@ -89,7 +91,7 @@ public class SeriesDao implements SeriesDaoInterface {
 
     @Override
     public void addRating(int rating, Series series) {
-        final String query = "UPDATE series SET Rating = (Rating*Votes + ? )/(Votes +1) WHERE title = ?; " ;
+        final String query = "UPDATE series SET Rating = (Rating*Votes + ? )/(Votes +1) WHERE title = ?; ";
         jdbcTemplate.update(query, new Object[]{rating, series.getTitle()});
         final String query2 = "UPDATE series Set Votes = Votes +1 WHERE title = ?;";
         jdbcTemplate.update(query2, series.getTitle());
@@ -98,6 +100,6 @@ public class SeriesDao implements SeriesDaoInterface {
     @Override
     public void addSeries(Series series) {
         final String query = "INSERT INTO series VALUES (?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(query, new Object[]{series.getTitle(), series.getSeriesWebsite(), series.getStation(),series.getImageLink(), series.getRating(), 0});
+        jdbcTemplate.update(query, new Object[]{series.getTitle(), series.getSeriesWebsite(), series.getStation(), series.getImageLink(), series.getRating(), 0});
     }
 }

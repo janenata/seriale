@@ -8,6 +8,6 @@ import java.util.List;
  */
 public interface CommentDaoInterface {
     List<Comment> getAllComments();
-    void deleteComment(Comment comment);
+    void deleteComment(Integer commentId);
     void addComment(Comment comment);
 }

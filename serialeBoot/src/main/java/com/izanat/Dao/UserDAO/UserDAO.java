@@ -14,6 +14,8 @@ import java.util.List;
 /**
  * Created by Nathalie on 08.04.2017.
  */
+
+//przetestowane
 @Repository("mysql")
 public class UserDAO implements UserDaoInterface {
 
@@ -27,9 +29,8 @@ public class UserDAO implements UserDaoInterface {
     }
 
     @Override
-    public void changePassword(User user, String newPass) {
+    public void changePassword(String login, String newPass) {
         final String query = "UPDATE users SET password = ? WHERE login = ?";
-        final String login = user.getLogin();
         jdbcTemplate.update(query, new Object[]{newPass, login});
     }
 

@@ -1,6 +1,7 @@
 package com.izanat.Service;
 
 import com.izanat.Dao.SeriesDAO.SeriesDao;
+import com.izanat.Dao.TvStationDAO.TvStationDao;
 import com.izanat.Dao.UserDAO.UserDAO;
 import com.izanat.Entity.Series;
 import com.izanat.Entity.User;
@@ -15,16 +16,13 @@ import java.util.Collection;
  */
 @Service
 public class TmpService {
-    @Autowired
-    @Qualifier("mysql")
-    private UserDAO userDAO;
+
+
 
     @Autowired
     private SeriesDao seriesDao;
 
-    public Collection<User> getAllUsers() {
-        return userDAO.getAllUsers();
-    }
+
 
     public Collection<Series> getMostPopularSeries() {
         return seriesDao.getMostPopularSeries();

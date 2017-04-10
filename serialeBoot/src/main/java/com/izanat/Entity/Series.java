@@ -7,14 +7,15 @@ public class Series {
     private String title;
     private String seriesWebsite;
     private String station;
+    private String imageLink;
     private Double rating;
-   // private int votes; //nie wiem czy potrzebujemy, czy nie wystarczy że baza bedzie sobie to liczyła i zmieniała w zapytaniu
-    //może trzeba dodać image? bo możnaby wyświetlać na stronie
 
-    public Series(String title, String seriesWebsite, String station) {
+
+    public Series(String title, String seriesWebsite, String station, String imageLink) {
         this.title = title;
         this.seriesWebsite = seriesWebsite;
         this.station = station;
+        this.imageLink = imageLink;
     }
 
     public Series() {
@@ -52,11 +53,11 @@ public class Series {
         this.rating = rating;
     }
 
-    /*public int getVotes() {
-        return votes;
+    public String getImageLink() {
+        return imageLink;
     }
 
-    public void setVotes(int votes) {
-        this.votes = votes;
-    }*/
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
+    }
 }

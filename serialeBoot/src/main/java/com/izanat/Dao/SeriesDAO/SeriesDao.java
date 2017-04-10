@@ -94,4 +94,10 @@ public class SeriesDao implements SeriesDaoInterface {
         final String query2 = "UPDATE series Set Votes = Votes +1 WHERE title = ?;";
         jdbcTemplate.update(query2, series.getTitle());
     }
+
+    @Override
+    public void addSeries(Series series) {
+        final String query = "INSERT INTO series VALUES (?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(query, new Object[]{series.getTitle(), series.getSeriesWebsite(), series.getStation(),series.getImageLink(), series.getRating(), 0});
+    }
 }

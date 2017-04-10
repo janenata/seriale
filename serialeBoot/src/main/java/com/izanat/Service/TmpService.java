@@ -49,13 +49,13 @@ public class TmpService {
     }
 
     public void addRating(int rating, Series series) {
-        Series ser = new Series("NCIS:LA", "http://www.cbs.com/shows/ncis_los_angeles/","CBS");
+        Series ser = new Series("CSI:Miami", "http://www.cbs.com/shows/csi-miami/","CBS");
         seriesDao.addRating(rating, ser);
     }
 
     public void addSeriesToUser(String user, String series) {
         User userek = new User("nat", "pass", "nat@gmail.com");
-        Series ser = new Series("NCIS", "http://www.cbs.com/shows/ncis/","CBS");
+        Series ser = new Series("CSI:Miami", "http://www.cbs.com/shows/csi-miami/","CBS");
         seriesDao.addSeriesToUser(userek, ser);
     }
 

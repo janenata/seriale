@@ -14,4 +14,5 @@ public interface UserDaoInterface {
     //for testing
     Collection<User> getAllUsers();
 
+    boolean checkPassword(String login, String password);
 }

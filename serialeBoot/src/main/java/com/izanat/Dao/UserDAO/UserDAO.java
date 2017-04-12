@@ -50,4 +50,11 @@ public class UserDAO implements UserDaoInterface {
         });
         return users;
     }
+    @Override
+    public boolean checkPassword(String login, String password) {
+        final String query = "SELECT (CASE WHEN  password = ? then 1 else 0 END) FROM users WHERE login = ?;";
+        int odp = jdbcTemplate.queryForObject(query, new Object[]{password, login}, Integer.class);
+        if (odp == 1) return true;
+        else return false;
+    }
 }

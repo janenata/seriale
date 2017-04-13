@@ -14,8 +14,8 @@
 <form role="form" action="/login" method="post">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <div>
-        <label for="email">Email address</label>
-        <input type="email" name="email" id="email" required autofocus>
+        <label for="login">Login</label>
+        <input type="login" name="login" id="login" required autofocus>
     </div>
     <div>
         <label for="password">Password</label>

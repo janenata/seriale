@@ -5,15 +5,25 @@ import javax.persistence.*;
 /**
  * Created by Nathalie on 08.04.2017.
  */
-/*public class User {
 
-   private String login;
-    private String password;
+@Entity
+@Table(name = "users")
+public class User {
+
+    @Id
+    @Column(name = "login", nullable = false, updatable = false)
+    private String login;
+    @Column(name = "password", nullable = false)
+    private String passwordHash;
+    @Column(name = "email", nullable = false)
     private String email;
+    @Column(name = "role", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public User(String login, String password, String email) {
         this.login = login;
-        this.password = password;
+        this.passwordHash = password;
         this.email = email;
     }
 
@@ -28,52 +38,6 @@ import javax.persistence.*;
         this.login = login;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-}*/
-
-
-@Entity
-@Table(name = "user")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, updatable = false)
-    private Long id;
-
-    @Column(name = "email", nullable = false, unique = true)
-    private String email;
-
-    @Column(name = "password_hash", nullable = false)
-    private String passwordHash;
-
-    @Column(name = "role", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getEmail() {
         return email;
@@ -87,8 +51,8 @@ public class User {
         return passwordHash;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPasswordHash(String password_hash) {
+        this.passwordHash = password_hash;
     }
 
     public Role getRole() {
@@ -99,3 +63,4 @@ public class User {
         this.role = role;
     }
 }
+

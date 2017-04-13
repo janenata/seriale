@@ -34,15 +34,15 @@ public class UserController {
         binder.addValidators(userCreateFormValidator);
     }
 
-    @RequestMapping("/user/{id}")
-    public ModelAndView getUserPage(@PathVariable Long id) {
-        return new ModelAndView("user", "user", userService.getUserById(id)
-                .orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", id))));
+    @RequestMapping("/user/{login}")
+    public ModelAndView getUserPage(@PathVariable String login) {
+        return new ModelAndView("/static/user", "user", userService.getUserByLogin(login)
+                .orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", login))));
     }
 
     @RequestMapping(value = "/user/create", method = RequestMethod.GET)
     public ModelAndView getUserCreatePage() {
-        return new ModelAndView("user_create", "form", new UserCreateForm());
+        return new ModelAndView("/static/user_create", "form", new UserCreateForm());
     }
 
     @RequestMapping(value = "/user/create", method = RequestMethod.POST)
@@ -53,7 +53,7 @@ public class UserController {
         try {
             userService.create(form);
         } catch (DataIntegrityViolationException e) {
-            bindingResult.reject("email.exists", "Email already exists");
+            bindingResult.reject("login.exists", "login already exists");
             return "user_create";
         }
         return "redirect:/users";

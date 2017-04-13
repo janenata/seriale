@@ -25,8 +25,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> getUserById(long id) {
-        return Optional.ofNullable(userRepository.findOne(id));
+    public Optional<User> getUserByLogin(String login) {
+        return userRepository.findOneByLogin(login);
     }
 
     @Override
@@ -36,12 +36,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Collection<User> getAllUsers() {
-        return userRepository.findAll(new Sort("email"));
+        return userRepository.findAll(new Sort("login"));
     }
 
     @Override
     public User create(UserCreateForm form) {
         User user = new User();
+        user.setLogin(form.getLogin());
         user.setEmail(form.getEmail());
         user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
         user.setRole(form.getRole());

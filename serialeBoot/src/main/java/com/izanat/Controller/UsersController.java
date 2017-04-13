@@ -19,6 +19,7 @@ public class UsersController {
         this.userService = userService;
     }
 
+    //tak jaby nie ma view :P
     @RequestMapping("/users")
     public ModelAndView getUsersPage() {
         return new ModelAndView("users", "users", userService.getAllUsers());

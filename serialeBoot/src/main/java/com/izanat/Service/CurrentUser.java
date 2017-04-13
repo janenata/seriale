@@ -12,7 +12,7 @@ public class CurrentUser extends org.springframework.security.core.userdetails.U
     private User user;
 
     public CurrentUser(User user) {
-        super(user.getEmail(), user.getPasswordHash(), AuthorityUtils.createAuthorityList(user.getRole().toString()));
+        super(user.getLogin(), user.getPasswordHash(), AuthorityUtils.createAuthorityList(user.getRole().toString()));
         this.user = user;
     }
 
@@ -20,8 +20,8 @@ public class CurrentUser extends org.springframework.security.core.userdetails.U
         return user;
     }
 
-    public Long getId() {
-        return user.getId();
+    public String getLogin() {
+        return user.getLogin();
     }
 
     public Role getRole() {

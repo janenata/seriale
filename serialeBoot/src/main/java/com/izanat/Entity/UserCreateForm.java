@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 public class UserCreateForm {
 
     @NotEmpty
-    private String email = "";
+    private String login = "";
 
     @NotEmpty
     private String password = "";
@@ -18,11 +18,22 @@ public class UserCreateForm {
     @NotEmpty
     private String passwordRepeated = "";
 
+    @NotEmpty
+    private String email = "";
+
     @NotNull
     private Role role = Role.USER;
 
     public String getEmail() {
         return email;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public void setEmail(String email) {

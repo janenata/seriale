@@ -5,6 +5,7 @@
   Time: 14:04
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,7 +13,7 @@
 </head>
 <body>
 <form role="form" action="/login" method="post">
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    <p>login: test, haslo: demo</p>
     <div>
         <label for="login">Login</label>
         <input type="login" name="login" id="login" required autofocus>
@@ -26,6 +27,7 @@
         <input type="checkbox" name="remember-me" id="remember-me">
     </div>
     <button type="submit">Sign in</button>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
 
 </body>

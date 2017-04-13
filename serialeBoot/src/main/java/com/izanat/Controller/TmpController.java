@@ -13,12 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TmpController {
 
+//przeniesione do homeController
 
-    @RequestMapping(value={"/","/home"}, method = RequestMethod.GET)
+ /*   @RequestMapping(value={"/","/home"}, method = RequestMethod.GET)
     public ModelAndView home() {
         ModelAndView model = new ModelAndView("/static/index.jsp");
         return model;
-    }
+    }*/
 
 
 

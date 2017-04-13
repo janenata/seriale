@@ -59,13 +59,13 @@ public class SeriesDao implements SeriesDaoInterface {
         return series;
     }
 
-    @Override
+/*    @Override
     public List<Series> getSeriesWatchedByUser(User user) {
         final String query = "SELECT title, series_website, station_id, rating, image FROM watched_series NATURAL JOIN series WHERE login = ?;";
         List<Series> series = jdbcTemplate.query(query, new SeriesRowMapper(), user.getLogin());
         return series;
-    }
-
+    }*/
+/*
     @Override
     public List<Series> getSeriesUserMightLike(User user) {
         final String query = "SELECT title, series_website, station_id, rating, image \n" +
@@ -80,14 +80,14 @@ public class SeriesDao implements SeriesDaoInterface {
                 "LIMIT 5;";
         List<Series> series = jdbcTemplate.query(query, new SeriesRowMapper(), new Object[]{user.getLogin(), user.getLogin(), user.getLogin()});
         return series;
-    }
-
+    }*/
+/*
     @Override
     public void addSeriesToUser(User user, Series series) {
         final String query = "INSERT INTO watched_series VALUES (?, ?);";
         jdbcTemplate.update(query, new Object[]{user.getLogin(), series.getTitle()});
 
-    }
+    }*/
 
     @Override
     public void addRating(int rating, Series series) {

@@ -12,9 +12,9 @@ public interface SeriesDaoInterface {
     List<Series> getMostPopularSeries();
     List<Series> getTopRatedSeries();
     List<Series> getAllSeries();
-    List<Series> getSeriesWatchedByUser(User user);
-    List<Series> getSeriesUserMightLike(User user);
-    void addSeriesToUser(User user, Series series);
+   // List<Series> getSeriesWatchedByUser(User user);
+   // List<Series> getSeriesUserMightLike(User user);
+  //  void addSeriesToUser(User user, Series series);
     void addRating(int rating, Series series);
     void addSeries(Series series); //TO DO: przetestować
 

@@ -1,3 +1,4 @@
+/*
 package com.izanat.Dao.UserDAO;
 
 import com.izanat.Entity.User;
@@ -11,9 +12,11 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
 
+*/
 /**
  * Created by Nathalie on 08.04.2017.
- */
+ *//*
+
 
 //przetestowane
 @Repository("mysql")
@@ -58,3 +61,4 @@ public class UserDAO implements UserDaoInterface {
         else return false;
     }
 }
+*/

@@ -11,6 +11,29 @@
     <title>Register Page</title>
 </head>
 <body>
-You can register now!
+<h1>Create a new user</h1>
+
+<form role="form" name="form" action="" method="post">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+    <div>
+        <label for="login">Login</label>
+        <input type="login" name="login" id="login"  required autofocus/>
+    </div>
+    <div>
+        <label for="email">Email address</label>
+        <input type="email" name="email" id="email"  required />
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required/>
+    </div>
+    <div>
+        <label for="passwordRepeated">Repeat</label>
+        <input type="password" name="passwordRepeated" id="passwordRepeated" required/>
+    </div>
+
+    <button type="submit">Save</button>
+</form>
 </body>
 </html>

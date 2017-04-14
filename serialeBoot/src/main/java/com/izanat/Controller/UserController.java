@@ -34,7 +34,7 @@ public class UserController {
         binder.addValidators(userCreateFormValidator);
     }
 
-    @RequestMapping("/user/{login}")
+
     public ModelAndView getUserPage(@PathVariable String login) {
         return new ModelAndView("/static/user", "user", userService.getUserByLogin(login)
                 .orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", login))));
@@ -42,21 +42,21 @@ public class UserController {
 
     @RequestMapping(value = "/user/create", method = RequestMethod.GET)
     public ModelAndView getUserCreatePage() {
-        return new ModelAndView("/static/user_create", "form", new UserCreateForm());
+        return new ModelAndView("/static/user_create.jsp", "form", new UserCreateForm());
     }
 
     @RequestMapping(value = "/user/create", method = RequestMethod.POST)
     public String handleUserCreateForm(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "user_create";
+            return "/static/user_create.jsp";
         }
         try {
             userService.create(form);
         } catch (DataIntegrityViolationException e) {
             bindingResult.reject("login.exists", "login already exists");
-            return "user_create";
+            return "/static/user_create.jsp";
         }
-        return "redirect:/users";
+        return "redirect:/user/{"+form.getLogin()+"}";
     }
 
 }

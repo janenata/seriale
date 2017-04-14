@@ -6,5 +6,7 @@
 </head>
 <body>
 <h1>INDEXEEEEEEEEEEEEE</h1>
+<a href = "/login">login</a>
+<a href = "/user/create">Sign up</a>
 </body>
 </html>

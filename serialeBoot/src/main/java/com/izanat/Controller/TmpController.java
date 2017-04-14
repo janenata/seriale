@@ -20,11 +20,11 @@ public class TmpController {
         ModelAndView model = new ModelAndView("/static/index.jsp");
         return model;
     }*/
+ @RequestMapping(value="/create", method = RequestMethod.GET)
+ public ModelAndView create() {
+     ModelAndView model = new ModelAndView("/static/user_create.jsp");
+     return model;
 
-
-
-
-
-
+ }
 
 }

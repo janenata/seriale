@@ -19,10 +19,10 @@ public class UsersController {
         this.userService = userService;
     }
 
-    //tak jaby nie ma view do tego :P
+
     @RequestMapping("/users")
     public ModelAndView getUsersPage() {
-        return new ModelAndView("users", "users", userService.getAllUsers());
+        return new ModelAndView("/static/users.jsp", "users", userService.getAllUsers());
     }
 
 }

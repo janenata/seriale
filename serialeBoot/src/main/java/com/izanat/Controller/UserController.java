@@ -34,11 +34,11 @@ public class UserController {
         binder.addValidators(userCreateFormValidator);
     }
 
-
+/*    @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ModelAndView getUserPage(@PathVariable String login) {
         return new ModelAndView("/static/user", "user", userService.getUserByLogin(login)
                 .orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", login))));
-    }
+    }*/
 
     @RequestMapping(value = "/user/create", method = RequestMethod.GET)
     public ModelAndView getUserCreatePage() {
@@ -56,7 +56,7 @@ public class UserController {
             bindingResult.reject("login.exists", "login already exists");
             return "/static/user_create.jsp";
         }
-        return "redirect:/user/{"+form.getLogin()+"}";
+        return "redirect:/home";
     }
 
 }

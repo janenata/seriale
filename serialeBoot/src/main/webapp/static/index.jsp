@@ -25,11 +25,21 @@
 </nav>
 
 <div class="container">
-    <h2>Kiedyś tu będzie lista seriali </h2>
+    <h2>Lista dostępnych seriali </h2>
     <c:if test="${not empty lista}">
-        <ul>
+        <ul class="list-group">
             <c:forEach var="listValue" items="${lista}">
-                <li>${listValue}</li>
+                <li class="list-group-item" style="border: none" >
+                    <c:forEach begin="1" end="${listValue.rating}" varStatus="loop">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </c:forEach>
+                    <c:forEach begin="${listValue.rating}" end="9" varStatus="loop">
+                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                    </c:forEach>&nbsp;
+                    <a href=${listValue.seriesWebsite} target="_blank">
+                            ${listValue.title}
+                    </a>
+                </li>
             </c:forEach>
         </ul>
 

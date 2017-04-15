@@ -30,14 +30,17 @@
 <div class="container">
     <h1>User details</h1>
     <p>Login: ${user.login}</p>
-    <p>Login: ${user.email}</p>
+    <p>Email: ${user.email}</p>
     <c:if test="${not empty userSeries}">
-        <ul>
+        <ul class="list-group">
             <c:forEach var="listValue" items="${userSeries}">
-                <li>${listValue.title}</li>
+                <li class="list-group-item" style="border: none">
+                    <a href=${listValue.seriesWebsite} target="_blank">
+                            ${listValue.title}
+                    </a>
+                </li>
             </c:forEach>
         </ul>
-
     </c:if>
 
 </div>

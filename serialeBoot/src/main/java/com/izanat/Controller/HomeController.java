@@ -1,5 +1,11 @@
 package com.izanat.Controller;
 
+import com.izanat.Entity.Series;
+import com.izanat.Service.CurrentUser;
+import com.izanat.Service.SeriesService;
+import com.izanat.Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,20 +20,17 @@ import java.util.List;
 @Controller
 public class HomeController {
 
+    private final SeriesService seriesService;
+
+    @Autowired
+    public HomeController(SeriesService seriesService) {
+        this.seriesService = seriesService;
+    }
+
     @RequestMapping(value={"/","/home"}, method = RequestMethod.GET)
     public ModelAndView home() {
         ModelAndView model = new ModelAndView("/static/index.jsp");
-        List<String> list = new ArrayList<String>();
-        list.add("List A");
-        list.add("List B");
-        list.add("List C");
-        list.add("List D");
-        list.add("List 1");
-        list.add("List 2");
-        list.add("List 3");
-        //tu trzeba będzie dać listę serial, ale ja jeszcze nie do końca ogarniam
-        //jak tu wszystko działa z tymi bazami i podstawowe zapytanie niestety nie zadziałalo
-        model.addObject("lista",list);
+        model.addObject("lista",seriesService.getAllSeries());
         return model;
     }
 

@@ -1,6 +1,7 @@
-/*
+
 package com.izanat.Dao.UserDAO;
 
+import com.izanat.Entity.Role;
 import com.izanat.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,23 +13,35 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
 
-*/
+
 /**
  * Created by Nathalie on 08.04.2017.
- *//*
+ */
 
 
-//przetestowane
-@Repository("mysql")
+@Repository
 public class UserDAO implements UserDaoInterface {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    private static class UserRowMapper implements RowMapper<User> {
+
+        @Override
+        public User mapRow(ResultSet resultSet, int i) throws SQLException {
+            User user = new User();
+            user.setLogin(resultSet.getString("login"));
+            user.setPasswordHash(resultSet.getString("password"));
+            user.setEmail(resultSet.getString("email"));
+            user.setRole(Role.USER);
+            return user;
+        }
+    }
+
     @Override
     public void addUser(User user) {
         final String query = "INSERT INTO users VALUES(?, ?, ?)";
-        jdbcTemplate.update(query, new Object[]{user.getLogin(), user.getPassword(), user.getEmail()});
+        jdbcTemplate.update(query, new Object[]{user.getLogin(), user.getPasswordHash(), user.getEmail()});
     }
 
     @Override
@@ -38,19 +51,16 @@ public class UserDAO implements UserDaoInterface {
     }
 
     @Override
+    public User getUser(String login) {
+        final String query = "SELECT login, password, email FROM users WHERE login = ?";
+        User user = jdbcTemplate.queryForObject(query, new Object[]{login}, new UserRowMapper());
+        return user;
+    }
+
+    @Override
     public Collection<User> getAllUsers() {
         final String query = "SELECT login, password, email FROM users; ";
-        List<User> users = jdbcTemplate.query(query, new RowMapper<User>() {
-            @Override
-            public User mapRow(ResultSet resultSet, int i) throws SQLException {
-                User user = new User();
-                user.setLogin(resultSet.getString("login"));
-                user.setPassword(resultSet.getString("password"));
-                user.setEmail(resultSet.getString("email"));
-                return user;
-
-            }
-        });
+        List<User> users = jdbcTemplate.query(query, new UserRowMapper());
         return users;
     }
     @Override
@@ -60,5 +70,7 @@ public class UserDAO implements UserDaoInterface {
         if (odp == 1) return true;
         else return false;
     }
+
+
 }
-*/
+

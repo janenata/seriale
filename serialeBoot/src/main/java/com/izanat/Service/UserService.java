@@ -12,6 +12,7 @@ import java.util.Optional;
 public interface UserService {
 
     Optional<User> getUserByLogin(String login);
+    User getUser(String login);
 
     Optional<User> getUserByEmail(String email);
 

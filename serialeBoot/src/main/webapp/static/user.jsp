@@ -11,11 +11,26 @@
 
 <html>
 <head>
+    <script src="webjars/jquery/2.1.4/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <title>User</title>
 </head>
 <body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">IzaNatSeries</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/home">Home</a></li>
+        </ul>
+    </div>
+</nav>
 
-<h1>User details</h1>
+<div class="container">
+    <h1>User details</h1>
+</div>
 
 </body>
 </html>

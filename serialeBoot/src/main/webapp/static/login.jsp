@@ -9,26 +9,41 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <script src="webjars/jquery/2.1.4/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <title>Login</title>
 </head>
 <body>
-<form role="form" action="/login" method="post">
-    <p>login: test, haslo: demo</p>
-    <div>
-        <label for="login">Login</label>
-        <input type="login" name="login" id="login" required autofocus>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">IzaNatSeries</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+        </ul>
     </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
-    </div>
-    <div>
-        <label for="remember-me">Remember me</label>
-        <input type="checkbox" name="remember-me" id="remember-me">
-    </div>
-    <button type="submit">Sign in</button>
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-</form>
+</nav>
 
+<div class="container">
+    <form role="form" action="/login" method="post">
+        <p>login: test, haslo: demo</p>
+        <div>
+            <label for="login">Login</label>
+            <input type="login" name="login" id="login" required autofocus>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <div>
+            <label for="remember-me">Remember me</label>
+            <input type="checkbox" name="remember-me" id="remember-me">
+        </div>
+        <button type="submit">Sign in</button>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+</div>
 </body>
 </html>

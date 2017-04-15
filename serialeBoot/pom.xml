@@ -33,31 +33,37 @@
             <version>4.3.7.RELEASE</version>
         </dependency>
 
+        <!--        <dependency>
+                    <groupId>tomcat</groupId>
+                    <artifactId>jasper-compiler</artifactId>
+                    <version>5.5.23</version>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>tomcat</groupId>
+                    <artifactId>jasper-runtime</artifactId>
+                    <version>5.5.23</version>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>tomcat</groupId>
+                    <artifactId>jasper-compiler-jdt</artifactId>
+                    <version>5.5.23</version>
+                    <scope>provided</scope>
+                </dependency>-->
+        <!-- dodane przeze mnie jak cos to mozesz usunac nastepne 2 -->
         <dependency>
-            <groupId>tomcat</groupId>
-            <artifactId>jasper-compiler</artifactId>
-            <version>5.5.23</version>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
         </dependency>
         <dependency>
-            <groupId>tomcat</groupId>
-            <artifactId>jasper-runtime</artifactId>
-            <version>5.5.23</version>
-        </dependency>
-        <dependency>
-            <groupId>tomcat</groupId>
-            <artifactId>jasper-compiler-jdt</artifactId>
-            <version>5.5.23</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-taglibs</artifactId>
-            <version>3.1.4.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -96,6 +102,21 @@
             <artifactId>cglib</artifactId>
             <version>2.2.2</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>2.1.4</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
 
     </dependencies>
 

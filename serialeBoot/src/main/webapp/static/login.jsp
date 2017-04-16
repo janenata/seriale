@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Nathalie
@@ -31,7 +32,6 @@
 
 <div class="container">
     <form role="form" action="/login" method="post">
-        <p>login: test, haslo: demo</p>
         <div>
             <label for="login">Login</label>
             <input type="login" name="login" id="login" required autofocus>
@@ -47,6 +47,9 @@
         <button type="submit">Sign in</button>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
+    <c:if test="${error.isPresent()}">
+        <p>The login or password you have entered is invalid, try again.</p>
+    </c:if>
 </div>
 </body>
 </html>

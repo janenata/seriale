@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Nathalie
@@ -51,6 +52,8 @@
     </div>
 
     <button type="submit">Save</button>
+
+
 </form>
 </div>
 </body>

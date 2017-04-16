@@ -25,7 +25,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/user"><span class="glyphicon glyphicon-check"></span> ${user.login}</a></li>
-            <li><a href="/addUserToSeries"><span class="glyphicon glyphicon-pencil"></span> Add series</a></li>
+            <li><a href="/editSeries"><span class="glyphicon glyphicon-pencil"></span> Edit series</a></li>
             <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
     </div>
@@ -35,6 +35,7 @@
     <h1>User details</h1>
     <p>Login: ${user.login}</p>
     <p>Email: ${user.email}</p>
+    <h3>Your subscriptions</h3>
     <c:if test="${not empty userSeries}">
         <ul class="list-group">
             <c:forEach var="listValue" items="${userSeries}">

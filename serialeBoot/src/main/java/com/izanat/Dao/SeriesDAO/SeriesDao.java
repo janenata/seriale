@@ -65,6 +65,14 @@ public class SeriesDao implements SeriesDaoInterface {
         List<Series> series = jdbcTemplate.query(query, new SeriesRowMapper(), user.getLogin());
         return series;
     }
+
+    @Override
+    public List<Series> getSeriesNotWatchedByUser(User user) {
+        final String query = "SELECT title, series_website, station_id, rating, image FROM series WHERE title NOT IN(  SELECT title FROM watched_series NATURAL JOIN series WHERE login = ?);";
+        List<Series> series = jdbcTemplate.query(query, new SeriesRowMapper(), user.getLogin());
+        return series;
+    }
+
     @Override
     public List<Series> getSeriesUserMightLike(User user) {
         final String query = "SELECT title, series_website, station_id, rating, image \n" +
@@ -99,5 +107,18 @@ public class SeriesDao implements SeriesDaoInterface {
     public void addSeries(Series series) {
         final String query = "INSERT INTO series VALUES (?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(query, new Object[]{series.getTitle(), series.getSeriesWebsite(), series.getStation(), series.getImageLink(), series.getRating(), 0});
+    }
+
+    @Override
+    public void deleteSeriesFromUser(User user, Series series) {
+        final String query = "DELETE FROM watched_series WHERE login = ? and title = ?;";
+        jdbcTemplate.update(query, new Object[]{user.getLogin(), series.getTitle()});
+    }
+
+    @Override
+    public Series getSeriesByTitle(String t) {
+        final String query = "SELECT title, series_website, station_id, rating, image FROM series WHERE title = ?";
+        Series series = jdbcTemplate.queryForObject(query, new Object[]{t}, new SeriesRowMapper());
+        return series;
     }
 }

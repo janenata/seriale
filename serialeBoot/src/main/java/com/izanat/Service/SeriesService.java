@@ -7,6 +7,7 @@ import com.izanat.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 /**
@@ -26,6 +27,13 @@ public class SeriesService {
         return seriesDao.getMostPopularSeries();
     }
 
+    public Series getSeriesByTitle(String title){
+        return seriesDao.getSeriesByTitle(title);
+    }
+
+    public List<Series> getSeriesNotWatchedByUser(User user){
+        return seriesDao.getSeriesNotWatchedByUser(user);
+    }
 
     public List<Series> getTopRatedSeries() {
         return seriesDao.getTopRatedSeries();
@@ -59,5 +67,9 @@ public class SeriesService {
 
     public void addSeries(Series series) {
         seriesDao.addSeries(series);
+    }
+
+    public void deleteSeriesFromUser(User user, Series series){
+        seriesDao.deleteSeriesFromUser(user,series);
     }
 }

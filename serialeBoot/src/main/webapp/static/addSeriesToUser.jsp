@@ -10,9 +10,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <script src="webjars/jquery/2.1.4/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.2.0/css/bootstrap.min.css">
-    <script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <title>IzaNatSeries ${user.login}</title>
 </head>
 <body>
@@ -40,6 +38,7 @@
         <input type="submit" name="submit" value="Submit">
     </form>
 </div>
-
+<script src="webjars/jquery/2.1.4/jquery.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -63,10 +63,9 @@
       <file leaf-file-name="CbsSiteAnalizer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Service/CbsSiteAnalizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
+            <state relative-caret-position="1292">
               <caret line="93" column="2" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="121" selection-end-column="7" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <marker date="1492465783106" expanded="false" signature="3467:3476" ph="&lt;~&gt;" />
               </folding>
             </state>
@@ -78,16 +77,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SeriesService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SeriesService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Service/SeriesService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="86" column="2" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="88" selection-end-column="7" />
+            <state relative-caret-position="430">
+              <caret line="63" column="52" lean-forward="false" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -96,24 +97,24 @@
       <file leaf-file-name="SeriesDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Dao/SeriesDAO/SeriesDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="75" column="13" lean-forward="true" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+            <state relative-caret-position="493">
+              <caret line="85" column="44" lean-forward="false" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
               <folding>
-                <marker date="1492460915602" expanded="true" signature="1247:1393" ph="SELECT title... watched_series" />
-                <marker date="1492460915602" expanded="true" signature="1598:1694" ph="SELECT title... series" />
-                <marker date="1492460915602" expanded="true" signature="1893:1960" ph="SELECT title... series" />
-                <marker date="1492460915602" expanded="true" signature="2178:2289" ph="SELECT title... watched_series" />
-                <marker date="1492460915602" expanded="true" signature="2527:2685" ph="SELECT title... series" />
-                <marker date="1492460915602" expanded="true" signature="2616:2684" ph="SELECT title... watched_series" />
-                <marker date="1492460915602" expanded="true" signature="2920:3463" ph="SELECT title... watched_series" />
-                <marker date="1492460915602" expanded="true" signature="3100:3242" ph="SELECT login... watched_series" />
-                <marker date="1492460915602" expanded="true" signature="3172:3218" ph="SELECT title... watched_series" />
-                <marker date="1492460915602" expanded="true" signature="3745:3785" ph="INSERT INTO watched_series... " />
-                <marker date="1492460915602" expanded="true" signature="3982:4055" ph="UPDATE serie... " />
-                <marker date="1492460915602" expanded="true" signature="4168:4218" ph="UPDATE serie... " />
-                <marker date="1492460915602" expanded="true" signature="4372:4423" ph="INSERT INTO series... " />
-                <marker date="1492460915602" expanded="true" signature="4688:4744" ph="DELETE FROM " />
-                <marker date="1492460915602" expanded="true" signature="4932:5015" ph="SELECT title... series" />
+                <marker date="1492466422096" expanded="true" signature="1247:1393" ph="SELECT title... watched_series" />
+                <marker date="1492466422096" expanded="true" signature="1598:1694" ph="SELECT title... series" />
+                <marker date="1492466422096" expanded="true" signature="1893:1960" ph="SELECT title... series" />
+                <marker date="1492466422096" expanded="true" signature="2178:2289" ph="SELECT title... watched_series" />
+                <marker date="1492466422096" expanded="true" signature="2527:2685" ph="SELECT title... series" />
+                <marker date="1492466422096" expanded="true" signature="2616:2684" ph="SELECT title... watched_series" />
+                <marker date="1492466422096" expanded="true" signature="2920:3455" ph="SELECT title... watched_series" />
+                <marker date="1492466422096" expanded="true" signature="3098:3238" ph="SELECT login... watched_series" />
+                <marker date="1492466422096" expanded="true" signature="3169:3215" ph="SELECT title... watched_series" />
+                <marker date="1492466422096" expanded="true" signature="3737:3777" ph="INSERT INTO watched_series... " />
+                <marker date="1492466422096" expanded="true" signature="3974:4047" ph="UPDATE serie... " />
+                <marker date="1492466422096" expanded="true" signature="4160:4210" ph="UPDATE serie... " />
+                <marker date="1492466422096" expanded="true" signature="4364:4415" ph="INSERT INTO series... " />
+                <marker date="1492466422096" expanded="true" signature="4680:4736" ph="DELETE FROM " />
+                <marker date="1492466422096" expanded="true" signature="4924:5007" ph="SELECT title... series" />
               </folding>
             </state>
           </provider>
@@ -122,7 +123,7 @@
       <file leaf-file-name="addSeriesToUser.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/static/addSeriesToUser.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
+            <state relative-caret-position="2533">
               <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
               <folding />
             </state>
@@ -132,7 +133,7 @@
       <file leaf-file-name="user.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/static/user.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
+            <state relative-caret-position="119">
               <caret line="85" column="50" lean-forward="false" selection-start-line="85" selection-start-column="50" selection-end-line="85" selection-end-column="50" />
               <folding />
             </state>
@@ -142,7 +143,7 @@
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/static/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="821">
+            <state relative-caret-position="1666">
               <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
               <folding />
             </state>
@@ -153,17 +154,17 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Controller/HomeController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="36" column="70" lean-forward="true" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+              <caret line="36" column="70" lean-forward="false" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserPageController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserPageController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Controller/UserPageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state relative-caret-position="527">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding>
                 <marker date="1492459215521" expanded="true" signature="1840:2112" ph="{...}" />
               </folding>
@@ -238,15 +239,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/izanat/Controller/AddSeriesToUserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/izanat/Controller/UserPageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/izanat/Entity/Series.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/izanat/Dao/SeriesDAO/SeriesDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/izanat/Entity/Episode.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/addSeriesToUser.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/user.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/izanat/Service/CbsSiteAnalizer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/izanat/Service/SiteAnalizerService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/izanat/Service/SeriesService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/izanat/Controller/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/izanat/Dao/SeriesDAO/SeriesDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/izanat/Service/SeriesService.java" />
       </list>
     </option>
   </component>
@@ -668,9 +669,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1187,11 +1188,12 @@
       <workItem from="1492442862623" duration="7591000" />
       <workItem from="1492459263602" duration="4078000" />
       <workItem from="1492464139312" duration="2069000" />
+      <workItem from="1492466306821" duration="431000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89315000" />
+    <option name="totallyTimeSpent" value="89746000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1227,7 +1229,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.4936034" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23400854" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23667377" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1556,27 +1558,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Entity/Episode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/addSeriesToUser.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
+        <state relative-caret-position="2533">
           <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
           <folding />
         </state>
@@ -1584,7 +1575,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
+        <state relative-caret-position="1666">
           <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding />
         </state>
@@ -1592,10 +1583,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Service/CbsSiteAnalizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
+        <state relative-caret-position="1292">
           <caret line="93" column="2" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="121" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
             <marker date="1492465783106" expanded="false" signature="3467:3476" ph="&lt;~&gt;" />
           </folding>
         </state>
@@ -1605,65 +1595,75 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Service/SeriesService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="86" column="2" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="88" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Controller/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="36" column="70" lean-forward="true" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Dao/SeriesDAO/SeriesDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="75" column="13" lean-forward="true" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+        <state relative-caret-position="493">
+          <caret line="85" column="44" lean-forward="false" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
           <folding>
-            <marker date="1492460915602" expanded="true" signature="1247:1393" ph="SELECT title... watched_series" />
-            <marker date="1492460915602" expanded="true" signature="1598:1694" ph="SELECT title... series" />
-            <marker date="1492460915602" expanded="true" signature="1893:1960" ph="SELECT title... series" />
-            <marker date="1492460915602" expanded="true" signature="2178:2289" ph="SELECT title... watched_series" />
-            <marker date="1492460915602" expanded="true" signature="2527:2685" ph="SELECT title... series" />
-            <marker date="1492460915602" expanded="true" signature="2616:2684" ph="SELECT title... watched_series" />
-            <marker date="1492460915602" expanded="true" signature="2920:3463" ph="SELECT title... watched_series" />
-            <marker date="1492460915602" expanded="true" signature="3100:3242" ph="SELECT login... watched_series" />
-            <marker date="1492460915602" expanded="true" signature="3172:3218" ph="SELECT title... watched_series" />
-            <marker date="1492460915602" expanded="true" signature="3745:3785" ph="INSERT INTO watched_series... " />
-            <marker date="1492460915602" expanded="true" signature="3982:4055" ph="UPDATE serie... " />
-            <marker date="1492460915602" expanded="true" signature="4168:4218" ph="UPDATE serie... " />
-            <marker date="1492460915602" expanded="true" signature="4372:4423" ph="INSERT INTO series... " />
-            <marker date="1492460915602" expanded="true" signature="4688:4744" ph="DELETE FROM " />
-            <marker date="1492460915602" expanded="true" signature="4932:5015" ph="SELECT title... series" />
+            <marker date="1492466422096" expanded="true" signature="1247:1393" ph="SELECT title... watched_series" />
+            <marker date="1492466422096" expanded="true" signature="1598:1694" ph="SELECT title... series" />
+            <marker date="1492466422096" expanded="true" signature="1893:1960" ph="SELECT title... series" />
+            <marker date="1492466422096" expanded="true" signature="2178:2289" ph="SELECT title... watched_series" />
+            <marker date="1492466422096" expanded="true" signature="2527:2685" ph="SELECT title... series" />
+            <marker date="1492466422096" expanded="true" signature="2616:2684" ph="SELECT title... watched_series" />
+            <marker date="1492466422096" expanded="true" signature="2920:3455" ph="SELECT title... watched_series" />
+            <marker date="1492466422096" expanded="true" signature="3098:3238" ph="SELECT login... watched_series" />
+            <marker date="1492466422096" expanded="true" signature="3169:3215" ph="SELECT title... watched_series" />
+            <marker date="1492466422096" expanded="true" signature="3737:3777" ph="INSERT INTO watched_series... " />
+            <marker date="1492466422096" expanded="true" signature="3974:4047" ph="UPDATE serie... " />
+            <marker date="1492466422096" expanded="true" signature="4160:4210" ph="UPDATE serie... " />
+            <marker date="1492466422096" expanded="true" signature="4364:4415" ph="INSERT INTO series... " />
+            <marker date="1492466422096" expanded="true" signature="4680:4736" ph="DELETE FROM " />
+            <marker date="1492466422096" expanded="true" signature="4924:5007" ph="SELECT title... series" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/user.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="85" column="50" lean-forward="false" selection-start-line="85" selection-start-column="50" selection-end-line="85" selection-end-column="50" />
+        <state relative-caret-position="136">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Controller/UserPageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state relative-caret-position="527">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <marker date="1492459215521" expanded="true" signature="1840:2112" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Controller/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="36" column="70" lean-forward="false" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/user.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="85" column="50" lean-forward="false" selection-start-line="85" selection-start-column="50" selection-end-line="85" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/izanat/Service/SeriesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="63" column="52" lean-forward="false" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>

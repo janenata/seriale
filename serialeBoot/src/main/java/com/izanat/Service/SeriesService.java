@@ -61,7 +61,7 @@ public class SeriesService {
 
 
     public List<Series> getSeriesUserMightLike(User user) {
-        return seriesDao.getSeriesWatchedByUser(user);
+        return seriesDao.getSeriesUserMightLike(user);
     }
 
 

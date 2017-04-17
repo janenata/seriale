@@ -76,14 +76,14 @@ public class SeriesDao implements SeriesDaoInterface {
     @Override
     public List<Series> getSeriesUserMightLike(User user) {
         final String query = "SELECT title, series_website, station_id, rating, image \n" +
-                "FROM watched_series NATURAL JOIN series\n" +
-                "WHERE login IN (\n" +
-                "SELECT login FROM watched_series WHERE title IN (\n" +
-                "SELECT title FROM watched_series WHERE login=?\n" +
-                ")\n" +
-                " ) AND login != ? AND title NOT IN(SELECT title FROM watched_series WHERE login=?)\n" +
-                "GROUP BY title\n" +
-                "ORDER BY COUNT(title) DESC\n" +
+                "FROM watched_series NATURAL JOIN series " +
+                "WHERE login IN ( " +
+                "SELECT login FROM watched_series WHERE title IN ( " +
+                "SELECT title FROM watched_series WHERE login=? " +
+                ") " +
+                " ) AND login != ? AND title NOT IN(SELECT title FROM watched_series WHERE login=?) " +
+                "GROUP BY title " +
+                "ORDER BY COUNT(title) DESC " +
                 "LIMIT 5;";
         List<Series> series = jdbcTemplate.query(query, new SeriesRowMapper(), new Object[]{user.getLogin(), user.getLogin(), user.getLogin()});
         return series;

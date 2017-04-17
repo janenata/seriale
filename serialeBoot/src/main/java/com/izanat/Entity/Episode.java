@@ -2,6 +2,7 @@ package com.izanat.Entity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Calendar;
 
 
 /**
@@ -12,10 +13,22 @@ public class Episode {
     private LocalDate airDate;
     private LocalTime airTime;
 
+    public String getDay() {
+
+        return day.substring(0,1)+day.substring(1,day.length()).toLowerCase();
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    private String day;
+
     public Episode(Series series, LocalDate airDate, LocalTime airTime) {
         this.series = series;
         this.airDate = airDate;
         this.airTime = airTime;
+        day = String.valueOf(airDate.getDayOfWeek());
     }
 
     public Episode() {
@@ -35,6 +48,7 @@ public class Episode {
 
     public void setAirDate(LocalDate airDate) {
         this.airDate = airDate;
+        day = String.valueOf(airDate.getDayOfWeek());
     }
 
     public LocalTime getAirTime() {

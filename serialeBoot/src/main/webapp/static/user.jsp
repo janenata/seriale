@@ -20,9 +20,6 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/home">IzaNatSeries</a>
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/home">Home</a></li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/user"><span class="glyphicon glyphicon-check"></span> ${user.login}</a></li>
             <li><a href="/editSeries"><span class="glyphicon glyphicon-pencil"></span> Edit series</a></li>
@@ -34,7 +31,50 @@
 <div class="container">
     <div class="row">
         <div class= "main col-xs-9">
+        <c:if test="${empty userSeries}">
+            <h3>You aren't observing any series.<br> It's tiem to change it!!!</h3>
+            <h3> <a href="/editSeries"><span class="glyphicon glyphicon-pencil"></span> Edit series</a><br></h3>
+        </c:if>
+            <c:if test="${not empty userSchedule}">
+            <h3>Your schedule</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Series</th>
+                    <th style="text-align: center">Air date</th>
+                    <th style="text-align: center">Air time</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="listValue" items="${userSchedule}">
 
+                        <tr>
+                            <th scope="row" style="vertical-align: middle">
+                                <a href=${listValue.series.seriesWebsite} target="_blank">
+                                    <img src="${listValue.series.imageLink}" height="132" width="100"/> &nbsp;${listValue.series.title}
+                                </a>
+
+                            </th>
+                            <td style="vertical-align: middle; text-align: center">
+                                   <p>${listValue.day}<br><br>
+                                     ${listValue.airDate}
+                                   </p>
+
+                            </td>
+                            <td style="vertical-align: middle; text-align: center">
+                                    ${listValue.airTime}
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </c:if>
+                </tbody>
+            </table>
+            <c:if test="${empty userSchedule && not empty userSeries}">
+                <img src="https://image.freepik.com/free-icon/crying-emoticon-face_318-48236.jpg" width="300" height="300" style="align-items: center;">
+                <h3>We are sorry to inform you that you have no series to watch</h3>
+            </c:if>
+            <br>
+            <c:if test="${not empty userSeries}">
             <h3>Your subscriptions</h3>
             <table class="table">
                 <thead>
@@ -46,7 +86,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:if test="${not empty userSeries}">
                     <c:forEach var="listValue" items="${userSeries}">
 
                         <tr>
@@ -74,20 +113,6 @@
                 </tbody>
             </table>
 
-            <h1>User schedule</h1>
-            <c:if test="${not empty userSchedule}">
-                <ul class="list-group">
-                    <c:forEach var="listValue" items="${userSchedule}">
-                        <li class="list-group-item" style="border: none">
-                            <a href=${listValue.series.seriesWebsite} target="_blank">
-                                    ${listValue.series.title}
-                            </a>
-                            <p>${listValue.airDate}</p>
-                            <p>${listValue.airTime}</p>
-                        </li>
-                    </c:forEach>
-                </ul>
-            </c:if>
         </div>
         <div class="sidebar col-xs-3">
             <div class="well">

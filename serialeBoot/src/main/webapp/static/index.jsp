@@ -13,9 +13,6 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="#">IzaNatSeries</a>
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/user/create"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="/user"><span class="glyphicon glyphicon-log-in"></span>My series</a></li>
@@ -27,7 +24,7 @@
     <div class="row">
         <div class= "main col-xs-9">
             <div>
-                <h2>Lista dostępnych seriali </h2>
+                <h2>All available series</h2>
                 <table class="table">
                     <thead>
                     <tr>

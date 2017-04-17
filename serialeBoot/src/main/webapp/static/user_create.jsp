@@ -18,38 +18,35 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/">IzaNatSeries</a>
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/user"><span class="glyphicon glyphicon-log-in"></span>My series</a></li>
         </ul>
     </div>
 </nav>
 <div class="container">
-<h1>Create a new user</h1>
+<h3>Create a new user</h3>
 
 <form role="form" name="form" action="" method="post">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
     <div>
-        <label for="login">Login</label>
-        <input type="login" name="login" id="login"  required autofocus/>
+        <br><label for="login">Login</label><br>
+        <input type="login" placeholder="Enter Login" name="login" id="login"  required autofocus/>
     </div>
     <div>
-        <label for="email">Email address</label>
-        <input type="email" name="email" id="email"  required />
+        <br><label for="email">Email address</label><br>
+        <input type="email" placeholder="Enter email" name="email" id="email"  required />
     </div>
     <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required/>
+        <br><label for="password">Password</label><br>
+        <input type="password" placeholder="Enter password" name="password" id="password" required/>
     </div>
     <div>
-        <label for="passwordRepeated">Repeat</label>
-        <input type="password" name="passwordRepeated" id="passwordRepeated" required/>
+        <br><label for="passwordRepeated">Repeat</label><br>
+        <input type="password" placeholder="Repeat password" name="passwordRepeated" id="passwordRepeated" required/>
     </div>
-
-    <button type="submit">Save</button>
+    <br>
+    <button class = "btn btn-primary" type="submit">Save</button>
 
 
 </form>

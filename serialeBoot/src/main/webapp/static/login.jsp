@@ -19,9 +19,6 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/">IzaNatSeries</a>
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/user/create"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         </ul>
@@ -31,18 +28,18 @@
 <div class="container">
     <form role="form" action="/login" method="post">
         <div>
-            <label for="login">Login</label>
-            <input type="login" name="login" id="login" required autofocus>
+            <br><label for="login">Login</label><br>
+            <input type="login" placeholder="Enter Login" name="login" id="login" required autofocus>
         </div>
         <div>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" required>
+            <br><label for="password">Password</label><br>
+            <input type="password" placeholder="Enter Password" name="password" id="password" required>
         </div>
         <div>
-            <label for="remember-me">Remember me</label>
-            <input type="checkbox" name="remember-me" id="remember-me">
+            <br><label for="remember-me" style="vertical-align: middle">Remember me</label>
+            <input type="checkbox" name="remember-me" id="remember-me" >
         </div>
-        <button type="submit">Sign in</button>
+        <br><button class="btn btn-primary" type="submit">Sign in</button>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
     <c:if test="${error.isPresent()}">

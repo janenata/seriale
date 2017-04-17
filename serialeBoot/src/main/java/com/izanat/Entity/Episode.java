@@ -1,6 +1,7 @@
 package com.izanat.Entity;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 
 /**
@@ -9,11 +10,12 @@ import java.time.LocalDate;
 public class Episode {
     private Series series;
     private LocalDate airDate;
-    //private Integer episodeNumber;
+    private LocalTime airTime;
 
-    public Episode(Series series, LocalDate airDate) {
+    public Episode(Series series, LocalDate airDate, LocalTime airTime) {
         this.series = series;
         this.airDate = airDate;
+        this.airTime = airTime;
     }
 
     public Episode() {
@@ -35,11 +37,11 @@ public class Episode {
         this.airDate = airDate;
     }
 
-  /*  public Integer getEpisodeNumber() {
-        return episodeNumber;
+    public LocalTime getAirTime() {
+        return airTime;
     }
 
-    public void setEpisodeNumber(Integer episodeNumber) {
-        this.episodeNumber = episodeNumber;
-    }*/
+    public void setAirTime(LocalTime airTime) {
+        this.airTime = airTime;
+    }
 }

@@ -28,23 +28,38 @@
         <div class= "main col-xs-9">
             <div>
                 <h2>Lista dostępnych seriali </h2>
-                <c:if test="${not empty lista}">
-                    <ul class="list-group">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Rating</th>
+                        <th>Station</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:if test="${not empty lista}">
                         <c:forEach var="listValue" items="${lista}">
-                            <li class="list-group-item" style="border: none" >
-                                <c:forEach begin="1" end="${listValue.rating}" varStatus="loop">
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                </c:forEach>
-                                <c:forEach begin="${listValue.rating}" end="9" varStatus="loop">
-                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                                </c:forEach>&nbsp;
-                                <a href=${listValue.seriesWebsite} target="_blank">
-                                        ${listValue.title}
-                                </a>
-                            </li>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href=${listValue.seriesWebsite} target="_blank">
+                                        <img src="${listValue.imageLink}" height="25%"/> &nbsp;${listValue.title}
+                                    </a>
+                                </th>
+                                <td style="vertical-align: middle">
+                                    <c:forEach begin="1" end="${listValue.rating}" varStatus="loop">
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    </c:forEach>
+                                    <c:forEach begin="${listValue.rating}" end="9" varStatus="loop">
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    </c:forEach>
+                                </td>
+                                <td style="vertical-align: middle">${listValue.station}</td>
+                            </tr>
                         </c:forEach>
-                    </ul>
-                </c:if>
+                    </c:if>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="sidebar col-xs-3">

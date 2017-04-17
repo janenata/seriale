@@ -39,7 +39,7 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Tittle</th>
+                    <th>Title</th>
                     <th>Rating</th>
                     <th>Station</th>
                     <th>Rate</th>
@@ -48,13 +48,15 @@
                 <tbody>
                 <c:if test="${not empty userSeries}">
                     <c:forEach var="listValue" items="${userSeries}">
+
                         <tr>
                             <th scope="row">
+
                                 <a href=${listValue.seriesWebsite} target="_blank">
-                                        ${listValue.title}
+                                    <img src="${listValue.imageLink}" height="25%"/> &nbsp;${listValue.title}
                                 </a>
                             </th>
-                            <td>
+                            <td style="vertical-align: middle">
                                 <c:forEach begin="1" end="${listValue.rating}" varStatus="loop">
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 </c:forEach>
@@ -62,8 +64,8 @@
                                     <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
                                 </c:forEach>
                             </td>
-                            <td>${listValue.station}</td>
-                            <td>
+                            <td style="vertical-align: middle">${listValue.station}</td>
+                            <td style="vertical-align: middle">
                                 Rate
                             </td>
                         </tr>

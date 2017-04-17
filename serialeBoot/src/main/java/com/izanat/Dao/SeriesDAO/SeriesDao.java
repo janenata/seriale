@@ -105,8 +105,8 @@ public class SeriesDao implements SeriesDaoInterface {
 
     @Override
     public void addSeries(Series series) {
-        final String query = "INSERT INTO series VALUES (?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(query, new Object[]{series.getTitle(), series.getSeriesWebsite(), series.getStation(), series.getImageLink(), series.getRating(), 0});
+        final String query = "INSERT IGNORE INTO series VALUES (?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(query, new Object[]{series.getTitle(), series.getSeriesWebsite(), series.getStation(), series.getImageLink(), 0, 0});
     }
 
     @Override

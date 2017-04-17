@@ -66,7 +66,7 @@ public class CbsSiteAnalizer implements SiteAnalizerService {
             Document doc = Jsoup.connect(tvStationDao.getStation(CBS).getStationWebsite() + "/schedule/").get();
             Elements shows = doc.select("a.showTitle");
             for (Element sh : shows) {
-                if (seriesList.contains(sh.html())) {
+                if (seriesList.stream().anyMatch(s -> s.getTitle().equals(sh.html()))) {
                     Episode ep = new Episode();
                     ep.setSeries(seriesDao.getSeriesByTitle(sh.html()));
                     String mouse = sh.attr("onMouseOver");

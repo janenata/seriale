@@ -33,6 +33,8 @@ public class HomeController {
     public ModelAndView home() {
         ModelAndView model = new ModelAndView("/static/index.jsp");
         model.addObject("lista",seriesService.getAllSeries());
+        model.addObject("mostPopular",seriesService.getMostPopularSeries());
+        model.addObject("topRated",seriesService.getTopRatedSeries());
         return model;
     }
 }

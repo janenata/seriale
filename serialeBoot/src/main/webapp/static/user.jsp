@@ -32,40 +32,103 @@
 </nav>
 
 <div class="container">
-    <h1>User details</h1>
-    <p>Login: ${user.login}</p>
-    <p>Email: ${user.email}</p>
-    <h3>Your subscriptions</h3>
-    <c:if test="${not empty userSeries}">
-        <ul class="list-group">
-            <c:forEach var="listValue" items="${userSeries}">
-                <li class="list-group-item" style="border: none">
-                    <a href=${listValue.seriesWebsite} target="_blank">
-                            ${listValue.title}
-                    </a>
-                </li>
-            </c:forEach>
-        </ul>
-    </c:if>
+    <div class="row">
+        <div class= "main col-xs-9">
 
+            <h3>Your subscriptions</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Tittle</th>
+                    <th>Rating</th>
+                    <th>Station</th>
+                    <th>Rate</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:if test="${not empty userSeries}">
+                    <c:forEach var="listValue" items="${userSeries}">
+                        <tr>
+                            <th scope="row">
+                                <a href=${listValue.seriesWebsite} target="_blank">
+                                        ${listValue.title}
+                                </a>
+                            </th>
+                            <td>
+                                <c:forEach begin="1" end="${listValue.rating}" varStatus="loop">
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                </c:forEach>
+                                <c:forEach begin="${listValue.rating}" end="9" varStatus="loop">
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                </c:forEach>
+                            </td>
+                            <td>${listValue.station}</td>
+                            <td>
+                                Rate
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </c:if>
+                </tbody>
+            </table>
+
+            <h1>User schedule</h1>
+            <c:if test="${not empty userSchedule}">
+                <ul class="list-group">
+                    <c:forEach var="listValue" items="${userSchedule}">
+                        <li class="list-group-item" style="border: none">
+                            <a href=${listValue.series.seriesWebsite} target="_blank">
+                                    ${listValue.series.title}
+                            </a>
+                            <p>${listValue.airDate}</p>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </c:if>
+        </div>
+        <div class="sidebar col-xs-3">
+            <div class="well">
+                <c:if test="${not empty youMightLike}">
+                    <ul class="nav">
+                        <li class="nav-header">You also might like</li>
+                        <c:forEach var="listValue" items="${youMightLike}">
+                            <li>
+                                <a href=${listValue.seriesWebsite} target="_blank">
+                                        ${listValue.title}
+                                </a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </c:if>
+                <c:if test="${not empty mostPopular}">
+                    <ul class="nav">
+                        <li class="nav-header">Most popular series</li>
+                        <c:forEach var="listValue" items="${mostPopular}">
+                            <li>
+                                <a href=${listValue.seriesWebsite} target="_blank">
+                                        ${listValue.title}
+                                </a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </c:if>
+                <c:if test="${not empty topRated}">
+                    <ul class="nav">
+                        <li class="nav-header">Top rated series</li>
+                        <c:forEach var="listValue" items="${topRated}">
+                            <li>
+                                <a href=${listValue.seriesWebsite} target="_blank">
+                                        ${listValue.title}
+                                </a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </c:if>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="container">
-    <h1>User schedule</h1>
-    <c:if test="${not empty userSchedule}">
-        <ul class="list-group">
-            <c:forEach var="listValue" items="${userSchedule}">
-                <li class="list-group-item" style="border: none">
-                    <a href=${listValue.series.seriesWebsite} target="_blank">
-                            ${listValue.series.title}
-                    </a>
-                    <p>${listValue.airDate}</p>
-                </li>
-            </c:forEach>
-        </ul>
-    </c:if>
-
-</div>
 <script src="webjars/jquery/2.1.4/jquery.js"></script>
 <script type="text/javascript" src="/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>

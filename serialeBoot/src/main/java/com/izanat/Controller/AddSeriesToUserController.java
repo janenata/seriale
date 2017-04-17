@@ -58,6 +58,9 @@ public class AddSeriesToUserController {
         ModelAndView model=  new ModelAndView("/static/addSeriesToUser.jsp");
         model.addObject("user", user);
         List<Series> seriesList = seriesService.getSeriesWatchedByUser(userService.getUser(user.getLogin()));
+        model.addObject("mostPopular",seriesService.getMostPopularSeries());
+        model.addObject("topRated",seriesService.getTopRatedSeries());
+        model.addObject("youMightLike",seriesService.getSeriesUserMightLike(user.getUser()));
         model.addObject("notUserSeries",seriesService.getSeriesNotWatchedByUser(user.getUser()));
         model.addObject("userSeries", seriesList);
         return model;

@@ -41,7 +41,9 @@ public class UserPageController {
         List<Series> seriesList = seriesService.getSeriesWatchedByUser(userService.getUser(user.getLogin()));
         model.addObject("userSeries", seriesList);
         model.addObject("allSeries",seriesService.getAllSeries());
-
+        model.addObject("topRated",seriesService.getTopRatedSeries());
+        model.addObject("youMightLike",seriesService.getSeriesUserMightLike(user.getUser()));
+        model.addObject("mostPopular",seriesService.getMostPopularSeries());
         return model;
     }
 

@@ -48,7 +48,7 @@
                             <tr>
                                 <th scope="row">
                                     <a href=${listValue.seriesWebsite} target="_blank">
-                                        <img src="${listValue.imageLink}" height="25%"/> &nbsp;${listValue.title}
+                                        <img src="${listValue.imageLink}" height="132" width="100"/> &nbsp;${listValue.title}
                                     </a>
                                 </th>
                                 <td style="vertical-align: middle">
@@ -74,7 +74,7 @@
                             <tr>
                                 <th scope="row">
                                     <a href=${listValue.seriesWebsite} target="_blank">
-                                        <img src="${listValue.imageLink}" height="25%"/> &nbsp;${listValue.title}
+                                        <img src="${listValue.imageLink}" height="132" width="100"/> &nbsp;${listValue.title}
                                     </a>
                                 </th>
                                 <td style="vertical-align: middle">

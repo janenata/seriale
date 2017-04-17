@@ -83,6 +83,7 @@
                                     ${listValue.series.title}
                             </a>
                             <p>${listValue.airDate}</p>
+                            <p>${listValue.airTime}</p>
                         </li>
                     </c:forEach>
                 </ul>

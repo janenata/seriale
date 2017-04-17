@@ -83,4 +83,8 @@ public class SeriesService {
     public void deleteSeriesFromUser(User user, Series series){
         seriesDao.deleteSeriesFromUser(user,series);
     }
+
+/*    public List<Episode> getAllNewEpisodes(){
+        return siteAnalizer.getAllNewEpisodes();
+    }*/
 }

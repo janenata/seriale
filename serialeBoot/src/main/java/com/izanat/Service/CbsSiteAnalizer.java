@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
@@ -75,6 +76,11 @@ public class CbsSiteAnalizer implements SiteAnalizerService {
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
                     LocalDate localDate = LocalDate.parse(date, formatter);
                     ep.setAirDate(localDate);
+                    String time = parts[1].substring(0, 5);
+                    DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+                    LocalTime localTime = LocalTime.parse(time, formatter2);
+                    ep.setAirTime(localTime);
+
                     episodes.add(ep);
                 }
             }
@@ -85,8 +91,33 @@ public class CbsSiteAnalizer implements SiteAnalizerService {
         return episodes;
     }
 
-    @Override
+/*    @Override
     public List<Episode> getAllNewEpisodes() {
-        return null;
-    }
+        List<Episode> episodes = new LinkedList<Episode>();
+        try {
+            Document doc = Jsoup.connect(tvStationDao.getStation(CBS).getStationWebsite() + "/schedule/").get();
+            Elements shows = doc.select("a.showTitle");
+            for (Element sh : shows) {
+                    Episode ep = new Episode();
+                    ep.setSeries(seriesDao.getSeriesByTitle(sh.html()));
+                    String mouse = sh.attr("onMouseOver");
+                    String[] parts = mouse.split(", '");
+                    String date = parts[2].substring(0, 10);
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                    LocalDate localDate = LocalDate.parse(date, formatter);
+                    ep.setAirDate(localDate);
+                    String time = parts[1].substring(0, 5);
+                    DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+                    LocalTime localTime = LocalTime.parse(time, formatter2);
+                    ep.setAirTime(localTime);
+
+                    episodes.add(ep);
+                }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return episodes;
+    }*/
 }

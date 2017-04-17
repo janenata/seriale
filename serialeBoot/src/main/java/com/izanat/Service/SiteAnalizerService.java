@@ -13,5 +13,5 @@ public interface SiteAnalizerService {
 
     List<Series> getAllSeries();
     List<Episode> getNewEpisodes(List<Series> series);
-    List<Episode> getAllNewEpisodes();
+    //List<Episode> getAllNewEpisodes();
 }

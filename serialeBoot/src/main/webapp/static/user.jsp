@@ -49,6 +49,23 @@
     </c:if>
 
 </div>
+
+<div class="container">
+    <h1>User schedule</h1>
+    <c:if test="${not empty userSchedule}">
+        <ul class="list-group">
+            <c:forEach var="listValue" items="${userSchedule}">
+                <li class="list-group-item" style="border: none">
+                    <a href=${listValue.series.seriesWebsite} target="_blank">
+                            ${listValue.series.title}
+                    </a>
+                    <p>${listValue.airDate}</p>
+                </li>
+            </c:forEach>
+        </ul>
+    </c:if>
+
+</div>
 <script src="webjars/jquery/2.1.4/jquery.js"></script>
 <script type="text/javascript" src="/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>

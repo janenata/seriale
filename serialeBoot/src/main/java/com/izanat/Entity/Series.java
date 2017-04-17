@@ -60,4 +60,19 @@ public class Series {
     public void setImageLink(String imageLink) {
         this.imageLink = imageLink;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Series series = (Series) o;
+
+        return title != null ? title.equals(series.title) : series.title == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return title != null ? title.hashCode() : 0;
+    }
 }

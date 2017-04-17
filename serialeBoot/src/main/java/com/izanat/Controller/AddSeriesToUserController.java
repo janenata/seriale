@@ -4,6 +4,7 @@ import com.izanat.Entity.Series;
 import com.izanat.Entity.User;
 import com.izanat.Service.CurrentUser;
 import com.izanat.Service.SeriesService;
+import com.izanat.Service.SiteAnalizerService;
 import com.izanat.Service.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -21,10 +22,12 @@ import java.util.List;
 public class AddSeriesToUserController {
     private SeriesService seriesService;
     private UserService userService;
+    private SiteAnalizerService siteAnalizer;
 
-    public AddSeriesToUserController(SeriesService seriesService, UserService userService) {
+    public AddSeriesToUserController(SeriesService seriesService, UserService userService, SiteAnalizerService siteAnalizer) {
         this.seriesService = seriesService;
         this.userService = userService;
+        this.siteAnalizer = siteAnalizer;
     }
 
     @RequestMapping(value = "/editSeries", method = RequestMethod.GET)
@@ -33,10 +36,14 @@ public class AddSeriesToUserController {
         return addParams(user);
     }
 
-    @RequestMapping(value = "/editSeries",method = RequestMethod.POST,params="add")
+    @RequestMapping(value = "/editSeries",method = RequestMethod.POST, params = "add")
     public ModelAndView addSeries(@RequestParam String add) {
         CurrentUser user = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        seriesService.addSeriesToUser(user.getUser(),seriesService.getSeriesByTitle(add));
+        List<Series> seriesList = siteAnalizer.getAllSeries();
+        for(Series ser : seriesList){
+            if(ser.getTitle().equals(add)) { seriesService.addSeriesToUser(user.getUser(),ser); break;}
+        }
+
         return addParams(user);
     }
 

@@ -1,5 +1,6 @@
 package com.izanat.Controller;
 
+import com.izanat.Entity.Episode;
 import com.izanat.Entity.Series;
 import com.izanat.Entity.User;
 import com.izanat.Service.CurrentUser;
@@ -34,10 +35,13 @@ public class UserPageController {
         ModelAndView model=  new ModelAndView("/static/user.jsp");
        // User user = userService.getUserByLogin(login).orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", login)));
         CurrentUser user = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<Episode> episodes = seriesService.getUserSchedule(user.getUser());
+        model.addObject("userSchedule", episodes);
         model.addObject("user", user);
         List<Series> seriesList = seriesService.getSeriesWatchedByUser(userService.getUser(user.getLogin()));
         model.addObject("userSeries", seriesList);
         model.addObject("allSeries",seriesService.getAllSeries());
+
         return model;
     }
 

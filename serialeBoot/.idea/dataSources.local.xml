@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="sql11168138@sql11.freemysqlhosting.net" uuid="0b365f9b-58b3-48a2-afea-1b8e6f9bd681">
-      <database-info product="MySQL" version="5.5.53-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+    <data-source name="ognos123_IZANAT@ognos123.vdl.pl" uuid="4e33a3d2-7c58-4176-9ad6-7b6e180e7356">
+      <database-info product="MySQL" version="5.6.34" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>sql11168138</user-name>
-      <introspection-schemas>*:sql11168138</introspection-schemas>
+      <user-name>ognos123_izanat</user-name>
+      <introspection-schemas>*:ognos123_IZANAT</introspection-schemas>
     </data-source>
   </component>
 </project>

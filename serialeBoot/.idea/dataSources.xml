@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="sql11168138@sql11.freemysqlhosting.net" uuid="0b365f9b-58b3-48a2-afea-1b8e6f9bd681">
+    <data-source source="LOCAL" name="ognos123_IZANAT@ognos123.vdl.pl" uuid="4e33a3d2-7c58-4176-9ad6-7b6e180e7356">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11168138</jdbc-url>
+      <jdbc-url>jdbc:mysql://ognos123.vdl.pl:3306/ognos123_IZANAT</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

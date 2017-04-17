@@ -33,14 +33,14 @@ public class AddSeriesToUserController {
         return addParams(user);
     }
 
-    @RequestMapping(method = RequestMethod.POST,params="add")
+    @RequestMapping(value = "/editSeries",method = RequestMethod.POST,params="add")
     public ModelAndView addSeries(@RequestParam String add) {
         CurrentUser user = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         seriesService.addSeriesToUser(user.getUser(),seriesService.getSeriesByTitle(add));
         return addParams(user);
     }
 
-    @RequestMapping(method = RequestMethod.POST,params="delete")
+    @RequestMapping(value = "/editSeries",method = RequestMethod.POST,params="delete")
     public ModelAndView deleteSeries(@RequestParam String delete) {
         CurrentUser user = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         seriesService.deleteSeriesFromUser(user.getUser(),seriesService.getSeriesByTitle(delete));

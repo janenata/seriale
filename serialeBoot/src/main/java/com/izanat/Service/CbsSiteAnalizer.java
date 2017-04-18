@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
@@ -73,14 +75,15 @@ public class CbsSiteAnalizer implements SiteAnalizerService {
                     String mouse = sh.attr("onMouseOver");
                     String[] parts = mouse.split(", '");
                     String date = parts[2].substring(0, 10);
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-                    LocalDate localDate = LocalDate.parse(date, formatter);
+                    String time = parts[1].substring(0,5);
+                    String datetime = date + " " + time;
+                    ZoneId zone = ZoneId.of("America/New_York");
+                    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm").withZone(zone);
+                    ZonedDateTime localDateTime = ZonedDateTime.parse(datetime, fmt).withZoneSameInstant(ZoneId.of("Europe/Paris"));
+                    LocalDate localDate =  localDateTime.toLocalDate();
+                    LocalTime localTime = localDateTime.toLocalTime();
                     ep.setAirDate(localDate);
-                    String time = parts[1].substring(0, 5);
-                    DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
-                    LocalTime localTime = LocalTime.parse(time, formatter2);
                     ep.setAirTime(localTime);
-
                     episodes.add(ep);
                 }
             }

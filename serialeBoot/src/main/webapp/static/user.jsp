@@ -32,7 +32,7 @@
     <div class="row">
         <div class= "main col-xs-9">
         <c:if test="${empty userSeries}">
-            <h3>You aren't observing any series.<br> It's tiem to change it!!!</h3>
+            <h3>You aren't observing any series.<br> It's time to change it!!!</h3>
             <h3> <a href="/editSeries"><span class="glyphicon glyphicon-pencil"></span> Edit series</a><br></h3>
         </c:if>
             <c:if test="${not empty userSchedule}">

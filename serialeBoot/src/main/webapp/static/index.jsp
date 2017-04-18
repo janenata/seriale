@@ -15,7 +15,7 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/user/create"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="/user"><span class="glyphicon glyphicon-log-in"></span>My series</a></li>
+            <li><a href="/user"><span class="glyphicon glyphicon-log-in"></span>My schedule</a></li>
         </ul>
     </div>
 </nav>
@@ -24,7 +24,7 @@
     <div class="row">
         <div class= "main col-xs-9">
             <div>
-                <h2>All available series</h2>
+                <h2>Series our Users watch</h2>
                 <table class="table">
                     <thead>
                     <tr>
@@ -47,7 +47,7 @@
                                     <c:forEach begin="1" end="${listValue.rating}" varStatus="loop">
                                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                     </c:forEach>
-                                    <c:forEach begin="${listValue.rating}" end="9" varStatus="loop">
+                                    <c:forEach begin="${listValue.rating}" end="4" varStatus="loop">
                                         <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
                                     </c:forEach>
                                 </td>

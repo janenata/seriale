@@ -12,7 +12,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.2.0/css/bootstrap.min.css">
-    <title>IzaNatSeries ${user.login}</title>
+    <title>IzaNatSeries</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -22,7 +22,7 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/user"><span class="glyphicon glyphicon-check"></span> ${user.login}</a></li>
-            <li><a href="/editSeries"><span class="glyphicon glyphicon-pencil"></span> Edit series</a></li>
+            <li><a href="/editSeries"><span class="glyphicon glyphicon-pencil"></span> Edit my series</a></li>
             <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
     </div>
@@ -119,18 +119,18 @@
                                 <c:forEach begin="1" end="${listValue.rating}" varStatus="loop">
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 </c:forEach>
-                                <c:forEach begin="${listValue.rating}" end="9" varStatus="loop">
+                                <c:forEach begin="${listValue.rating}" end="4" varStatus="loop">
                                     <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
                                 </c:forEach>
                             </td>
                             <td style="vertical-align: middle">${listValue.station}</td>
                             <td style="vertical-align: middle">
                                 <form method="post">
-                                    <input type="radio" name="rating" value="1" class="star">
-                                    <input type="radio" name="rating" value="2" class="star">
-                                    <input type="radio" name="rating" value="3" class="star">
-                                    <input type="radio" name="rating" value="4" class="star">
-                                    <input type="radio" name="rating" value="5" class="star">
+                                    <input type="radio" name="rating" value="1">
+                                    <input type="radio" name="rating" value="2" >
+                                    <input type="radio" name="rating" value="3">
+                                    <input type="radio" name="rating" value="4">
+                                    <input type="radio" name="rating" value="5">
                                     <br>
                                     <input type="hidden" value="${listValue.title}" name="rate">
                                     <input type="submit" value="rate" class="btn btn-primary btn-md"/>

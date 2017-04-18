@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Nathalie
@@ -19,11 +21,17 @@
             <a class="navbar-brand" href="/">IzaNatSeries</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/user"><span class="glyphicon glyphicon-log-in"></span>My series</a></li>
+            <li><a href="/user"><span class="glyphicon glyphicon-log-in"></span>My schedule</a></li>
         </ul>
     </div>
 </nav>
 <div class="container">
+    <spring:hasBindErrors name="form">
+        <c:forEach var="error" items="${errors.allErrors}">
+            <b style="color:red"><spring:message message="${error}" /></b>
+            <br />
+        </c:forEach>
+    </spring:hasBindErrors>
 <h3>Create a new user</h3>
 
 <form role="form" name="form" action="" method="post">
@@ -46,7 +54,7 @@
         <input type="password" placeholder="Repeat password" name="passwordRepeated" id="passwordRepeated" required/>
     </div>
     <br>
-    <button class = "btn btn-primary" type="submit">Save</button>
+    <button class = "btn btn-primary" type="submit">Create Account</button>
 
 
 </form>

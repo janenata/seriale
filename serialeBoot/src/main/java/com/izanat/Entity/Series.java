@@ -16,6 +16,7 @@ public class Series {
         this.seriesWebsite = seriesWebsite;
         this.station = station;
         this.imageLink = imageLink;
+
     }
 
     public Series() {

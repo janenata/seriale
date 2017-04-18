@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class CurrentUserDetailsService implements UserDetailsService {
     private final UserService userService;
 
+
     @Autowired
     public CurrentUserDetailsService(UserService userService) {
         this.userService = userService;
@@ -24,4 +25,6 @@ public class CurrentUserDetailsService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException(String.format("User with login=%s was not found", login)));
         return new CurrentUser(user);
     }
+
+
 }

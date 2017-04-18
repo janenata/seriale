@@ -26,6 +26,9 @@
 </nav>
 
 <div class="container">
+    <c:if test="${error.isPresent()}">
+        <p style="color:red"> Invalid login or password, try again</p>
+    </c:if>
     <form role="form" action="/login" method="post">
         <div>
             <br><label for="login">Login</label><br>
@@ -42,9 +45,8 @@
         <br><button class="btn btn-primary" type="submit">Sign in</button>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
-    <c:if test="${error.isPresent()}">
-        <p>The login or password you have entered is invalid, try again.</p>
-    </c:if>
+    <p>Don't have account? <a href="/user/create" >Sign up!</a></p>
+
 </div>
 <script src="webjars/jquery/2.1.4/jquery.js"></script>
 <script type="text/javascript" src="/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>

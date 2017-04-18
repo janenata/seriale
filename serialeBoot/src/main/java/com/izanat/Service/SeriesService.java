@@ -45,6 +45,8 @@ public class SeriesService {
         return seriesDao.getTopRatedSeries();
     }
 
+    public List<Series> getAllWatchedSeries() { return seriesDao.getAllSeries();}
+
 
     public List<Series> getAllSeries() {
         return siteAnalizer.getAllSeries();

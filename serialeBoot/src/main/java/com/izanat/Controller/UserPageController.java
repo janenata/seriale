@@ -40,20 +40,18 @@ public class UserPageController {
         return addParams();
     }
 
-    @RequestMapping(value = "/user",method = RequestMethod.POST,params = "rate")
-    public ModelAndView addRating(HttpServletRequest request,@RequestParam String rate){
+    @RequestMapping(value = "/user", method = RequestMethod.POST, params = "rate")
+    public ModelAndView addRating(HttpServletRequest request, @RequestParam String rate) {
         String rating = request.getParameter("rating");
-        //System.out.println(rating+" "+rate);
-        seriesService.addRating(Integer.parseInt(rating),seriesService.getSeriesByTitle(rate));
+        seriesService.addRating(Integer.parseInt(rating), seriesService.getSeriesByTitle(rate));
         return addParams();
 
     }
 
-    private ModelAndView addParams(){
-        ModelAndView model=  new ModelAndView("/static/user.jsp");
+    private ModelAndView addParams() {
+        ModelAndView model = new ModelAndView("/static/user.jsp");
         LocalDate now = LocalDate.now().plusDays(1);
 
-        // User user = userService.getUserByLogin(login).orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", login)));
         CurrentUser user = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Episode> episodes = seriesService.getUserSchedule(user.getUser());
         model.addObject("userSchedule", episodes);
@@ -61,21 +59,20 @@ public class UserPageController {
         List<Series> seriesList = seriesService.getSeriesWatchedByUser(userService.getUser(user.getLogin()));
         List<Episode> tomorrow = new ArrayList<>();
         List<Episode> notTomorrow = new ArrayList<>();
-        for(Episode e : episodes){
-            if((e.getAirDate()).isEqual(now)){
+        for (Episode e : episodes) {
+            if ((e.getAirDate()).isEqual(now)) {
                 tomorrow.add(e);
-            }
-            else{
+            } else {
                 notTomorrow.add(e);
             }
         }
-        model.addObject("tomorrow",tomorrow);
-        model.addObject("notTomorrow",notTomorrow);
+        model.addObject("tomorrow", tomorrow);
+        model.addObject("notTomorrow", notTomorrow);
         model.addObject("userSeries", seriesList);
-        model.addObject("allSeries",seriesService.getAllSeries());
-        model.addObject("topRated",seriesService.getTopRatedSeries());
-        model.addObject("youMightLike",seriesService.getSeriesUserMightLike(user.getUser()));
-        model.addObject("mostPopular",seriesService.getMostPopularSeries());
+        model.addObject("allSeries", seriesService.getAllSeries());
+        model.addObject("topRated", seriesService.getTopRatedSeries());
+        model.addObject("youMightLike", seriesService.getSeriesUserMightLike(user.getUser()));
+        model.addObject("mostPopular", seriesService.getMostPopularSeries());
         return model;
     }
 

@@ -53,6 +53,7 @@ public class UserServiceImpl implements UserService {
         user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
         user.setRole(form.getRole());
         return userRepository.save(user);
+
     }
 
 }

@@ -32,7 +32,7 @@ public class HomeController {
     @RequestMapping(value={"/","/home"}, method = RequestMethod.GET)
     public ModelAndView home() {
         ModelAndView model = new ModelAndView("/static/index.jsp");
-        model.addObject("lista",seriesService.getAllSeries());
+        model.addObject("lista",seriesService.getAllWatchedSeries());
         model.addObject("mostPopular",seriesService.getMostPopularSeries());
         model.addObject("topRated",seriesService.getTopRatedSeries());
         return model;

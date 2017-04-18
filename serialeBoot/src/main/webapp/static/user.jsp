@@ -46,9 +46,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="listValue" items="${userSchedule}">
+                    <c:forEach var="listValue" items="${tomorrow}">
 
-                        <tr>
+                        <tr class="active">
                             <th scope="row" style="vertical-align: middle">
                                 <a href=${listValue.series.seriesWebsite} target="_blank">
                                     <img src="${listValue.series.imageLink}" height="132" width="100"/> &nbsp;${listValue.series.title}
@@ -59,6 +59,26 @@
                                    <p>${listValue.day}<br><br>
                                      ${listValue.airDate}
                                    </p>
+
+                            </td>
+                            <td style="vertical-align: middle; text-align: center">
+                                    ${listValue.airTime}
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    <c:forEach var="listValue" items="${notTomorrow}">
+
+                        <tr>
+                            <th scope="row" style="vertical-align: middle">
+                                <a href=${listValue.series.seriesWebsite} target="_blank">
+                                    <img src="${listValue.series.imageLink}" height="132" width="100"/> &nbsp;${listValue.series.title}
+                                </a>
+
+                            </th>
+                            <td style="vertical-align: middle; text-align: center">
+                                <p>${listValue.day}<br><br>
+                                        ${listValue.airDate}
+                                </p>
 
                             </td>
                             <td style="vertical-align: middle; text-align: center">

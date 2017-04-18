@@ -125,7 +125,16 @@
                             </td>
                             <td style="vertical-align: middle">${listValue.station}</td>
                             <td style="vertical-align: middle">
-                                Rate
+                                <form method="post">
+                                    <input type="radio" name="rating" value="1" class="star">
+                                    <input type="radio" name="rating" value="2" class="star">
+                                    <input type="radio" name="rating" value="3" class="star">
+                                    <input type="radio" name="rating" value="4" class="star">
+                                    <input type="radio" name="rating" value="5" class="star">
+                                    <br>
+                                    <input type="hidden" value="${listValue.title}" name="rate">
+                                    <input type="submit" value="rate" class="btn btn-primary btn-md"/>
+                                </form>
                             </td>
                         </tr>
                     </c:forEach>

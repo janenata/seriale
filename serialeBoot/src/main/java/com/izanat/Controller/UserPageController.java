@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.time.chrono.ChronoLocalDate;
 import java.util.ArrayList;
@@ -35,10 +37,23 @@ public class UserPageController {
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ModelAndView getUserPage() {
+        return addParams();
+    }
+
+    @RequestMapping(value = "/user",method = RequestMethod.POST,params = "rate")
+    public ModelAndView addRating(HttpServletRequest request,@RequestParam String rate){
+        String rating = request.getParameter("rating");
+        //System.out.println(rating+" "+rate);
+        seriesService.addRating(Integer.parseInt(rating),seriesService.getSeriesByTitle(rate));
+        return addParams();
+
+    }
+
+    private ModelAndView addParams(){
         ModelAndView model=  new ModelAndView("/static/user.jsp");
         LocalDate now = LocalDate.now().plusDays(1);
 
-       // User user = userService.getUserByLogin(login).orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", login)));
+        // User user = userService.getUserByLogin(login).orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", login)));
         CurrentUser user = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Episode> episodes = seriesService.getUserSchedule(user.getUser());
         model.addObject("userSchedule", episodes);
@@ -46,8 +61,8 @@ public class UserPageController {
         List<Series> seriesList = seriesService.getSeriesWatchedByUser(userService.getUser(user.getLogin()));
         List<Episode> tomorrow = new ArrayList<>();
         List<Episode> notTomorrow = new ArrayList<>();
-       for(Episode e : episodes){
-           if((e.getAirDate()).isEqual(now)){
+        for(Episode e : episodes){
+            if((e.getAirDate()).isEqual(now)){
                 tomorrow.add(e);
             }
             else{

@@ -3,7 +3,9 @@ package com.izanat.Entity;
 /**
  * Created by Nathalie on 08.04.2017.
  */
+
 public class TvStation {
+
     private String stationId;
     private String stationWebsite;
 

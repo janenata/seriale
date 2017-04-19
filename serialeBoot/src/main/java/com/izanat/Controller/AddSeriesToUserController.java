@@ -1,10 +1,11 @@
 package com.izanat.Controller;
 
+import com.izanat.Analizers.SiteAnalizer;
 import com.izanat.Entity.Series;
 import com.izanat.Service.CurrentUser;
 import com.izanat.Service.SeriesService;
-import com.izanat.Analizers.SiteAnalizer;
 import com.izanat.Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ public class AddSeriesToUserController {
     private UserService userService;
     private SiteAnalizer siteAnalizer;
 
+    @Autowired
     public AddSeriesToUserController(SeriesService seriesService, UserService userService, SiteAnalizer siteAnalizer) {
         this.seriesService = seriesService;
         this.userService = userService;

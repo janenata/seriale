@@ -7,6 +7,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 /**
  * Created by Nathalie on 13.04.2017.
  */
+
 public class CurrentUser extends org.springframework.security.core.userdetails.User {
 
     private User user;

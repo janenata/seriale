@@ -2,24 +2,22 @@ package com.izanat.Controller;
 
 import com.izanat.Entity.Episode;
 import com.izanat.Entity.Series;
-import com.izanat.Entity.User;
 import com.izanat.Service.CurrentUser;
+import com.izanat.Service.EmailService;
 import com.izanat.Service.SeriesService;
 import com.izanat.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
-import java.time.chrono.ChronoLocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 /**
  * Created by Nathalie on 14.04.2017.
@@ -28,6 +26,8 @@ import java.util.NoSuchElementException;
 public class UserPageController {
     private final UserService userService;
     private final SeriesService seriesService;
+    @Autowired
+    private EmailService emailService;
 
     @Autowired
     public UserPageController(UserService userService, SeriesService seriesService) {
@@ -59,11 +59,13 @@ public class UserPageController {
         List<Series> seriesList = seriesService.getSeriesWatchedByUser(userService.getUser(user.getLogin()));
         List<Episode> tomorrow = new ArrayList<>();
         List<Episode> notTomorrow = new ArrayList<>();
-        for (Episode e : episodes) {
-            if ((e.getAirDate()).isEqual(now)) {
-                tomorrow.add(e);
-            } else {
-                notTomorrow.add(e);
+        if (!episodes.isEmpty()) {
+            for (Episode e : episodes) {
+                if ((e.getAirDate()).isEqual(now)) {
+                    tomorrow.add(e);
+                } else {
+                    notTomorrow.add(e);
+                }
             }
         }
         model.addObject("tomorrow", tomorrow);
@@ -73,6 +75,7 @@ public class UserPageController {
         model.addObject("topRated", seriesService.getTopRatedSeries());
         model.addObject("youMightLike", seriesService.getSeriesUserMightLike(user.getUser()));
         model.addObject("mostPopular", seriesService.getMostPopularSeries());
+        emailService.sendEmail(user.getEmail(), tomorrow);
         return model;
     }
 

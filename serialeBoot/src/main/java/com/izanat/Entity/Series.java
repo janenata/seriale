@@ -3,7 +3,9 @@ package com.izanat.Entity;
 /**
  * Created by Nathalie on 08.04.2017.
  */
+
 public class Series {
+
     private String title;
     private String seriesWebsite;
     private String station;
@@ -76,4 +78,6 @@ public class Series {
     public int hashCode() {
         return title != null ? title.hashCode() : 0;
     }
+
+
 }

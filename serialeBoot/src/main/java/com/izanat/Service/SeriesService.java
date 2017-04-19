@@ -8,6 +8,7 @@ import com.izanat.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -34,7 +35,10 @@ public class SeriesService {
     }
 
     public List<Series> getSeriesNotWatchedByUser(User user){
+        List<Series> seriesBase = seriesDao.getAllSeries();
         List<Series> seriesNotWatchedByUser = siteAnalizer.getAllSeries();
+        seriesNotWatchedByUser.removeAll(seriesBase);
+        seriesNotWatchedByUser.addAll(seriesBase);
         seriesNotWatchedByUser.removeAll(seriesDao.getSeriesWatchedByUser(user));
         return seriesNotWatchedByUser;
     }

@@ -2,7 +2,6 @@ package com.izanat.Analizers;
 
 import com.izanat.Entity.Episode;
 import com.izanat.Entity.Series;
-import com.izanat.Entity.TvStation;
 
 import java.util.List;
 

@@ -2,16 +2,18 @@ package com.izanat.Analizers;
 
 import com.izanat.Dao.SeriesDAO.SeriesDao;
 import com.izanat.Dao.TvStationDAO.TvStationDao;
+import com.izanat.Dao.UserDAO.UserDAO;
+import com.izanat.Dao.UserDAO.UserDaoInterface;
 import com.izanat.Entity.Episode;
 import com.izanat.Entity.Series;
+import com.izanat.Entity.User;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -19,8 +21,10 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Nathalie on 17.04.2017.
@@ -31,16 +35,31 @@ public class CbsSiteAnalizer implements SiteAnalizer {
     public static final String CBS = "CBS";
     private TvStationDao tvStationDao;
     private SeriesDao seriesDao;
+    private UserDAO userDao;
+
+    private List<Series> seriesList;
+    private Map<User, LinkedList<Episode>> usersEpisodesMap;
 
     @Autowired
-    public CbsSiteAnalizer(TvStationDao tvStationDao, SeriesDao seriesDao) {
+    public CbsSiteAnalizer(TvStationDao tvStationDao, SeriesDao seriesDao, UserDAO userDao) {
         this.tvStationDao = tvStationDao;
         this.seriesDao = seriesDao;
+        this.userDao = userDao;
+
     }
 
     @Override
     public List<Series> getAllSeries() {
-        List<Series> seriesList = new LinkedList<Series>();
+        if (seriesList == null) {
+            seriesList = new LinkedList<>();
+            fetchAllSeries();
+        }
+        return seriesList;
+    }
+
+    @Scheduled(cron = "30 58 15 * * *")
+    public void fetchAllSeries() {
+        seriesList.clear();
         try {
             Document doc = Jsoup.connect(tvStationDao.getStation(CBS).getStationWebsite() + "/shows/").get();
             Elements shows = doc.select("li.showPosterWrapper");
@@ -59,12 +78,31 @@ public class CbsSiteAnalizer implements SiteAnalizer {
             e.printStackTrace();
         }
 
-        return seriesList;
+
     }
 
+
+/*    public List<Episode> getNewEpisodes(User user) {
+        if (usersEpisodesMap == null) {
+            usersEpisodesMap = new HashMap<>();
+            getNewEpisodesForAllUsers();
+        }
+        return usersEpisodesMap.get(user);
+    }
+
+//@Scheduled(cron="30 58 15 * * *")
+    public void getNewEpisodesForAllUsers() {
+        usersEpisodesMap.clear();
+        for (User u : userDao.getAllUsers()) {
+            usersEpisodesMap.put(u, fetchNewEpisodes(seriesDao.getSeriesWatchedByUser(u)));
+
+        }
+
+    }*/
+
     @Override
-    public List<Episode> getNewEpisodes(List<Series> seriesList) {
-        List<Episode> episodes = new LinkedList<Episode>();
+    public LinkedList<Episode> getNewEpisodes(List<Series> seriesList) {
+        LinkedList<Episode> episodes = new LinkedList<>();
 
         try {
             Document doc = Jsoup.connect(tvStationDao.getStation(CBS).getStationWebsite() + "/schedule/").get();
@@ -76,12 +114,12 @@ public class CbsSiteAnalizer implements SiteAnalizer {
                     String mouse = sh.attr("onMouseOver");
                     String[] parts = mouse.split(", '");
                     String date = parts[2].substring(0, 10);
-                    String time = parts[1].substring(0,5);
+                    String time = parts[1].substring(0, 5);
                     String datetime = date + " " + time;
                     ZoneId zone = ZoneId.of("America/New_York");
                     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm").withZone(zone);
                     ZonedDateTime localDateTime = ZonedDateTime.parse(datetime, fmt).withZoneSameInstant(ZoneId.of("Europe/Paris"));
-                    LocalDate localDate =  localDateTime.toLocalDate();
+                    LocalDate localDate = localDateTime.toLocalDate();
                     LocalTime localTime = localDateTime.toLocalTime();
                     ep.setAirDate(localDate);
                     ep.setAirTime(localTime);

@@ -91,7 +91,7 @@ public class SeriesDao implements SeriesDaoInterface {
 
     @Override
     public void addSeriesToUser(User user, Series series) {
-        final String query = "INSERT INTO watched_series VALUES (?, ?);";
+        final String query = "INSERT IGNORE INTO watched_series VALUES (?, ?);";
         jdbcTemplate.update(query, new Object[]{user.getLogin(), series.getTitle()});
 
     }

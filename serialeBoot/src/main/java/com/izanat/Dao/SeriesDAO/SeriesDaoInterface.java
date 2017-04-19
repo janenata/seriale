@@ -17,8 +17,8 @@ public interface SeriesDaoInterface {
     List<Series> getSeriesUserMightLike(User user);
     void addSeriesToUser(User user, Series series);
     void addRating(int rating, Series series);
-    void addSeries(Series series); //TODO: przetestować
+    void addSeries(Series series);
     void deleteSeriesFromUser(User user, Series series);
-
+    Series getSeriesByWebsite(String www);
     Series getSeriesByTitle(String title);
 }

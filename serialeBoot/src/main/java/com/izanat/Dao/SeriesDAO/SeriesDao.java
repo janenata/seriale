@@ -88,6 +88,7 @@ public class SeriesDao implements SeriesDaoInterface {
         List<Series> series = jdbcTemplate.query(query, new SeriesRowMapper(), new Object[]{user.getLogin(), user.getLogin(), user.getLogin()});
         return series;
     }
+
     @Override
     public void addSeriesToUser(User user, Series series) {
         final String query = "INSERT INTO watched_series VALUES (?, ?);";
@@ -119,6 +120,13 @@ public class SeriesDao implements SeriesDaoInterface {
     public Series getSeriesByTitle(String t) {
         final String query = "SELECT title, series_website, station_id, rating, image FROM series WHERE title = ?";
         Series series = jdbcTemplate.queryForObject(query, new Object[]{t}, new SeriesRowMapper());
+        return series;
+    }
+
+    @Override
+    public Series getSeriesByWebsite(String w) {
+        final String query = "SELECT title, series_website, station_id, rating, image FROM series WHERE series_website = ?";
+        Series series = jdbcTemplate.queryForObject(query, new Object[]{w}, new SeriesRowMapper());
         return series;
     }
 }

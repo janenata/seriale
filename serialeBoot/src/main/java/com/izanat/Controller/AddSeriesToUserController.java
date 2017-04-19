@@ -1,10 +1,9 @@
 package com.izanat.Controller;
 
 import com.izanat.Entity.Series;
-import com.izanat.Entity.User;
 import com.izanat.Service.CurrentUser;
 import com.izanat.Service.SeriesService;
-import com.izanat.Service.SiteAnalizerService;
+import com.izanat.Analizers.SiteAnalizer;
 import com.izanat.Service.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -22,9 +21,9 @@ import java.util.List;
 public class AddSeriesToUserController {
     private SeriesService seriesService;
     private UserService userService;
-    private SiteAnalizerService siteAnalizer;
+    private SiteAnalizer siteAnalizer;
 
-    public AddSeriesToUserController(SeriesService seriesService, UserService userService, SiteAnalizerService siteAnalizer) {
+    public AddSeriesToUserController(SeriesService seriesService, UserService userService, SiteAnalizer siteAnalizer) {
         this.seriesService = seriesService;
         this.userService = userService;
         this.siteAnalizer = siteAnalizer;

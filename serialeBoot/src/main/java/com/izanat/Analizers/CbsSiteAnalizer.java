@@ -1,4 +1,4 @@
-package com.izanat.Service;
+package com.izanat.Analizers;
 
 import com.izanat.Dao.SeriesDAO.SeriesDao;
 import com.izanat.Dao.TvStationDAO.TvStationDao;
@@ -9,6 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 
@@ -24,8 +25,8 @@ import java.util.List;
 /**
  * Created by Nathalie on 17.04.2017.
  */
-@Service
-public class CbsSiteAnalizer implements SiteAnalizerService {
+@Component
+public class CbsSiteAnalizer implements SiteAnalizer {
 
     public static final String CBS = "CBS";
     private TvStationDao tvStationDao;
@@ -69,9 +70,9 @@ public class CbsSiteAnalizer implements SiteAnalizerService {
             Document doc = Jsoup.connect(tvStationDao.getStation(CBS).getStationWebsite() + "/schedule/").get();
             Elements shows = doc.select("a.showTitle");
             for (Element sh : shows) {
-                if (seriesList.stream().anyMatch(s -> s.getTitle().equals(sh.html()))) {
+                if (seriesList.stream().anyMatch(s -> s.getSeriesWebsite().equals(sh.attr("href")))) {
                     Episode ep = new Episode();
-                    ep.setSeries(seriesDao.getSeriesByTitle(sh.html()));
+                    ep.setSeries(seriesDao.getSeriesByWebsite(sh.attr("href")));
                     String mouse = sh.attr("onMouseOver");
                     String[] parts = mouse.split(", '");
                     String date = parts[2].substring(0, 10);

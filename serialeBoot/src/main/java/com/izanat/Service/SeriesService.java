@@ -1,15 +1,13 @@
 package com.izanat.Service;
 
+import com.izanat.Analizers.SiteAnalizer;
 import com.izanat.Dao.SeriesDAO.SeriesDao;
-import com.izanat.Dao.SeriesDAO.SeriesDaoInterface;
 import com.izanat.Entity.Episode;
 import com.izanat.Entity.Series;
 import com.izanat.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.jws.soap.SOAPBinding;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,10 +17,10 @@ import java.util.List;
 public class SeriesService {
 
     private SeriesDao seriesDao;
-    private SiteAnalizerService siteAnalizer;
+    private SiteAnalizer siteAnalizer;
 
     @Autowired
-    public SeriesService(SeriesDao seriesDao, SiteAnalizerService siteAnalizer){
+    public SeriesService(SeriesDao seriesDao, SiteAnalizer siteAnalizer){
         this.seriesDao = seriesDao;
         this.siteAnalizer = siteAnalizer;
     }

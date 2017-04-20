@@ -41,7 +41,7 @@ public class EmailService {
             List<Episode> episodes = seriesService.getUserSchedule(u);
             List<Episode> todayEpisodes = new LinkedList<>();
             for (Episode ep : episodes) {
-                if (ep.getAirDate().isEqual(today)) {
+                if (ep.getAirDate().isEqual(today.plusDays(1))) {
                     todayEpisodes.add(ep);
                 }
             }
@@ -63,7 +63,7 @@ public class EmailService {
             public void prepare(MimeMessage mimeMessage) throws Exception {
                 MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
                 messageHelper.setTo(emailAddress);
-                messageHelper.setFrom(new InternetAddress("izanatseries@gmail.com"));
+                messageHelper.setFrom(new InternetAddress("izanatseries@onet.pl"));
                 messageHelper.setSubject("New episodes are waiting for you!");
                 String text = "Leave everything and go watch IzaNatSeries!\n Episodes airing today:\n";
                 for (Episode ep : list) {

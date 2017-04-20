@@ -12,7 +12,20 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="webjars/fullcalendar/2.0.0/fullcalendar.css">
+    <link rel="stylesheet" type="text/css" href="webjars/fullcalendar/2.0.0/fullcalendar.print.css">
     <title>IzaNatSeries</title>
+    <script>
+        $(document).ready(function() {
+
+            // page is now ready, initialize the calendar...
+
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+            })
+
+        });
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -184,9 +197,12 @@
             </div>
         </div>
     </div>
-</div>
-
+  <%--  <div data-provide="calendar"></div>--%>
+    <div id='calendar'></div>
+    </div>
+<script src="webjars/momentjs/2.16.0/min/moment.min.js"></script>
 <script src="webjars/jquery/2.1.4/jquery.js"></script>
-<script type="text/javascript" src="/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="webjars/fullcalendar/2.0.0/fullcalendar.min.js"></script>
 </body>
 </html>
